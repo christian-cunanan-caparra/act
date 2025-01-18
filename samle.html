@@ -13,7 +13,6 @@
             background-color: #f0f2f5;
         }
 
-        /* Header styles */
         header {
             background-color: white;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -54,13 +53,11 @@
             cursor: pointer;
         }
 
-        /* Container styles */
         .container {
             display: flex;
             margin: 20px;
         }
 
-        /* Sidebar styles */
         .sidebar {
             width: 25%;
             padding: 20px;
@@ -87,7 +84,7 @@
             margin-right: 10px;
         }
 
-                .sidebar ul li a {
+        .sidebar ul li a {
             text-decoration: none;
             color: black;
             display: flex;
@@ -95,10 +92,9 @@
         }
 
         .sidebar ul li a:hover {
-            color: #1877f2; /* Facebook blue color */
+            color: #1877f2;
         }
 
-        /* Newsfeed styles */
         .newsfeed {
             flex-grow: 1;
             margin-left: 20px;
@@ -158,13 +154,14 @@
         .post-actions button:hover {
             background-color: #d8dadf;
         }
+
         .comment-section {
             display: none;
             margin-top: 10px;
         }
 
         .comment-section input {
-            width: 95%;
+            width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -176,7 +173,6 @@
             font-size: 14px;
             color: #555;
         }
-
     </style>
 </head>
 <body>
@@ -193,7 +189,6 @@
         </div>
     </header>
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <ul>
                 <li><a href="home.html"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Home"> Home</a></li>
@@ -203,8 +198,6 @@
                 <li><a href="watch.html"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch"> Watch</a></li>
             </ul>
         </div>
-
-        <!-- Newsfeed -->
         <div class="newsfeed">
             <div class="post">
                 <div class="post-header">
@@ -214,135 +207,42 @@
                         <div class="time">5 hours ago</div>
                     </div>
                 </div>
-                <div class="post-content">
-                  Gutom napo ako!!
-                </div>
+                <div class="post-content">Gutom napo ako!!</div>
                 <div class="post-actions">
                     <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
                     <button onclick="toggleCommentSection(this)">Comment</button>
-                  
-                    <button>Share</button>
                 </div>
-
-                <div class="comment-section">
-                    <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
-                    <div class="comments"></div>
-                </div>
-
-
-                
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <img src="img/473582253_1325067522250323_2018626089318684702_n.jpg" alt="Profile Picture">
-                    <div>
-                        <div class="name">John Lloyd Guevarra</div>
-                        <div class="time">8 hours ago</div>
-                    </div>
-                </div>
-                <div class="post-content">
-                    tara gala!
-                </div>
-                <div class="post-actions">
-                    <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
-                    <button onclick="toggleCommentSection(this)">Comment</button>
-                    <button>Share</button>
-                </div>
-
-                <div class="comment-section">
-                    <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
-                    <div class="comments"></div>
-                </div>
-
-
-
-            </div>
-
-            <div class="post">
-                <div class="post-header">
-                    <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Profile Picture">
-                    <div>
-                        <div class="name">Jhuniel Galang</div>
-                        <div class="time">12 hours ago</div>
-                    </div>
-                </div>
-                <div class="post-content">
-                  Gutom napo ako!!
-                </div>
-                <div class="post-actions">
-                    <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
-                    <button onclick="toggleCommentSection(this)">Comment</button>
-                    <button>Share</button>
-                </div>
-
-
                 <div class="comment-section">
                     <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
                     <div class="comments"></div>
                 </div>
             </div>
-
-
-
-
-
-
-
-            <div class="post">
-                <div class="post-header">
-                    <img src="img/422886398_8143352062343752_1286942911298102858_n.jpg" alt="Profile Picture">
-                    <div>
-                        <div class="name">Michael De Ramos</div>
-                        <div class="time">12 hours ago</div>
-                    </div>
-                </div>
-                <div class="post-content">
-                  Gutom napo ako!!
-                </div>
-                <div class="post-actions">
-                    <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
-                    <button onclick="toggleCommentSection(this)">Comment</button>
-                    <button>Share</button>
-                </div>
-
-
-
-                <div class="comment-section">
-                    <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
-                    <div class="comments"></div>
-                </div>
-            </div>
-
-
-
-
         </div>
     </div>
-    
-</body>
-<script>
-    function likePost(button) {
-        const likeCountSpan = button.querySelector(".like-count");
-        let likeCount = parseInt(likeCountSpan.textContent);
-        likeCount++;
-        likeCountSpan.textContent = likeCount;
-    }
 
-    function toggleCommentSection(button) {
-        const commentSection = button.parentElement.nextElementSibling;
-        commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
-    }
-
-    function addComment(event, input) {
-        if (event.key === "Enter" && input.value.trim() !== "") {
-            const commentText = input.value.trim();
-            const commentsDiv = input.nextElementSibling;
-            const newComment = document.createElement("div");
-            newComment.textContent = commentText;
-            commentsDiv.appendChild(newComment);
-            input.value = "";
+    <script>
+        function likePost(button) {
+            const likeCountSpan = button.querySelector(".like-count");
+            let likeCount = parseInt(likeCountSpan.textContent);
+            likeCount++;
+            likeCountSpan.textContent = likeCount;
         }
-    }
-</script>
+
+        function toggleCommentSection(button) {
+            const commentSection = button.parentElement.nextElementSibling;
+            commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+        }
+
+        function addComment(event, input) {
+            if (event.key === "Enter" && input.value.trim() !== "") {
+                const commentText = input.value.trim();
+                const commentsDiv = input.nextElementSibling;
+                const newComment = document.createElement("div");
+                newComment.textContent = commentText;
+                commentsDiv.appendChild(newComment);
+                input.value = "";
+            }
+        }
+    </script>
+</body>
 </html>

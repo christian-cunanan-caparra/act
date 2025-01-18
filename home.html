@@ -158,6 +158,25 @@
         .post-actions button:hover {
             background-color: #d8dadf;
         }
+        .comment-section {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .comment-section input {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-section .comments div {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
     </style>
 </head>
 <body>
@@ -181,7 +200,7 @@
                 <li><a href="friends.html"><img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends"> Friends</a></li>
                 <li><img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Groups"> Groups</li>
                 <li><img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Marketplace"> Marketplace</li>
-                <li><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch"> Watch</li>
+                <li><a href="watch.html"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch"> Watch</a></li>
             </ul>
         </div>
 
@@ -199,15 +218,24 @@
                   Gutom napo ako!!
                 </div>
                 <div class="post-actions">
-                    <button>Like</button>
-                    <button>Comment</button>
+                    <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
+                    <button onclick="toggleCommentSection(this)">Comment</button>
+                  
                     <button>Share</button>
                 </div>
+
+                <div class="comment-section">
+                    <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
+                    <div class="comments"></div>
+                </div>
+
+
+                
             </div>
 
             <div class="post">
                 <div class="post-header">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Profile Picture">
+                    <img src="img/473582253_1325067522250323_2018626089318684702_n.jpg" alt="Profile Picture">
                     <div>
                         <div class="name">John Lloyd Guevarra</div>
                         <div class="time">8 hours ago</div>
@@ -217,12 +245,104 @@
                     tara gala!
                 </div>
                 <div class="post-actions">
-                    <button>Like</button>
-                    <button>Comment</button>
+                    <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
+                    <button onclick="toggleCommentSection(this)">Comment</button>
                     <button>Share</button>
                 </div>
+
+                <div class="comment-section">
+                    <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
+                    <div class="comments"></div>
+                </div>
+
+
+
             </div>
+
+            <div class="post">
+                <div class="post-header">
+                    <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Profile Picture">
+                    <div>
+                        <div class="name">Jhuniel Galang</div>
+                        <div class="time">12 hours ago</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                  Gutom napo ako!!
+                </div>
+                <div class="post-actions">
+                    <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
+                    <button onclick="toggleCommentSection(this)">Comment</button>
+                    <button>Share</button>
+                </div>
+
+
+                <div class="comment-section">
+                    <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
+                    <div class="comments"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="post">
+                <div class="post-header">
+                    <img src="img/422886398_8143352062343752_1286942911298102858_n.jpg" alt="Profile Picture">
+                    <div>
+                        <div class="name">Michael De Ramos</div>
+                        <div class="time">12 hours ago</div>
+                    </div>
+                </div>
+                <div class="post-content">
+                  Gutom napo ako!!
+                </div>
+                <div class="post-actions">
+                    <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
+                    <button onclick="toggleCommentSection(this)">Comment</button>
+                    <button>Share</button>
+                </div>
+
+
+
+                <div class="comment-section">
+                    <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
+                    <div class="comments"></div>
+                </div>
+            </div>
+
+
+
+
         </div>
     </div>
+    
 </body>
+<script>
+    function likePost(button) {
+        const likeCountSpan = button.querySelector(".like-count");
+        let likeCount = parseInt(likeCountSpan.textContent);
+        likeCount++;
+        likeCountSpan.textContent = likeCount;
+    }
+
+    function toggleCommentSection(button) {
+        const commentSection = button.parentElement.nextElementSibling;
+        commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+    }
+
+    function addComment(event, input) {
+        if (event.key === "Enter" && input.value.trim() !== "") {
+            const commentText = input.value.trim();
+            const commentsDiv = input.nextElementSibling;
+            const newComment = document.createElement("div");
+            newComment.textContent = commentText;
+            commentsDiv.appendChild(newComment);
+            input.value = "";
+        }
+    }
+</script>
 </html>

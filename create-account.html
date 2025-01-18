@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create New Account</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container create-account-container">
+    <div class="create-account-form">
+      <h1>Create a New Account</h1>
+      <p>It's quick and easy.</p>
+      <hr>
+      <form>
+        <div class="name-fields">
+          <input type="text" placeholder="First name" required>
+          <input type="text" placeholder="Last name" required>
+        </div>
+        <input type="email" placeholder="Mobile number or email address" required>
+        <input type="password" placeholder="New password" required>
+
+        <label for="birthday">Birthday</label>
+        <div class="birthday-fields">
+          <select name="month" id="month" required>
+            <option value="" disabled selected>Month</option>
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+          </select>
+          <select name="day" id="day" required>
+            <option value="" disabled selected>Day</option>
+            <!-- Day options -->
+            ${[...Array(31)].map((_, i) => `<option value="${i + 1}">${i + 1}</option>`).join('')}
+          </select>
+          <select name="year" id="year" required>
+            <option value="" disabled selected>Year</option>
+            <!-- Year options -->
+            ${[...Array(100)].map((_, i) => `<option value="${new Date().getFullYear() - i}">${new Date().getFullYear() - i}</option>`).join('')}
+          </select>
+        </div>
+
+        <label for="gender">Gender</label>
+        <div class="gender-fields">
+          <label>
+            <input type="radio" name="gender" value="female" required> Female
+          </label>
+          <label>
+            <input type="radio" name="gender" value="male" required> Male
+          </label>
+          <label>
+            <input type="radio" name="gender" value="custom" required> Custom
+          </label>
+        </div>
+
+        <p class="terms">By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookies Policy</a>.</p>
+
+        <button type="submit" class="sign-up-button">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

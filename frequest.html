@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Requests</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav img {
+            width: 40px;
+            cursor: pointer;
+        }
+
+        nav img:hover {
+            opacity: 0.8;
+        }
+
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            bottom: 0;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #1c1e21;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #f0f2f5;
+        }
+
+        .sidebar ul li img {
+            width: 24px;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        .request-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h1 {
+            margin: 0;
+            color: #1c1e21;
+        }
+
+        .request-count {
+            background-color: #1877f2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .request-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .request-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .request-info img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .request-details {
+            flex: 1;
+        }
+
+        .request-details h3 {
+            margin: 0 0 5px 0;
+            color: #1c1e21;
+        }
+
+        .mutual-friends {
+            color: #65676b;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .request-time {
+            color: #65676b;
+            font-size: 12px;
+        }
+
+        .request-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-accept {
+            background-color: #1877f2;
+            color: white;
+        }
+
+        .btn-accept:hover {
+            background-color: #166fe5;
+        }
+
+        .btn-decline {
+            background-color: #e4e6eb;
+            color: #1c1e21;
+        }
+
+        .btn-decline:hover {
+            background-color: #d8dadf;
+        }
+
+        .no-requests {
+            text-align: center;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-requests img {
+            width: 100px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .no-requests h2 {
+            color: #1c1e21;
+            margin-bottom: 10px;
+        }
+
+        .no-requests p {
+            color: #65676b;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="friends.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+        </a>
+    </nav>
+
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="friends.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
+                    Friends
+                </a>
+            </li>
+            <li>
+                <a href="suggested.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friends">
+                    Suggested Friends
+                </a>
+            </li>
+            <li>
+                <a href="frequest.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1250/1250592.png" alt="Friend Requests">
+                    Friend Requests
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="request-container">
+            <div class="section-header">
+                <h1>Friend Requests</h1>
+                <span class="request-count">4 requests</span>
+            </div>
+
+            <div class="request-card">
+                <div class="request-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Alex Johnson">
+                    <div class="request-details">
+                        <h3>Mia Khalifa</h3>
+                        <div class="mutual-friends">8 mutual friends</div>
+                        <div class="request-time">2 days ago</div>
+                    </div>
+                </div>
+                <div class="request-actions">
+                    <button class="btn btn-accept">Accept</button>
+                    <button class="btn btn-decline">Decline</button>
+                </div>
+            </div>
+
+            <div class="request-card">
+                <div class="request-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Maria Garcia">
+                    <div class="request-details">
+                        <h3>Lexi Lore</h3>
+                        <div class="mutual-friends">3 mutual friends</div>
+                        <div class="request-time">5 days ago</div>
+                    </div>
+                </div>
+                <div class="request-actions">
+                    <button class="btn btn-accept">Accept</button>
+                    <button class="btn btn-decline">Decline</button>
+                </div>
+            </div>
+
+            <div class="request-card">
+                <div class="request-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="James Wilson">
+                    <div class="request-details">
+                        <h3>Sophie Rain</h3>
+                        <div class="mutual-friends">12 mutual friends</div>
+                        <div class="request-time">1 week ago</div>
+                    </div>
+                </div>
+                <div class="request-actions">
+                    <button class="btn btn-accept">Accept</button>
+                    <button class="btn btn-decline">Decline</button>
+                </div>
+            </div>
+
+            <div class="request-card">
+                <div class="request-info">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Emma Thompson">
+                    <div class="request-details">
+                        <h3>Candy Love</h3>
+                        <div class="mutual-friends">5 mutual friends</div>
+                        <div class="request-time">2 weeks ago</div>
+                    </div>
+                </div>
+                <div class="request-actions">
+                    <button class="btn btn-accept">Accept</button>
+                    <button class="btn btn-decline">Decline</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggested Friends</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav img {
+            width: 40px;
+            cursor: pointer;
+        }
+
+        nav img:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .suggestion-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .suggestion-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .suggestion-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .suggestion-card h3 {
+            margin: 0 0 10px 0;
+            color: #1c1e21;
+        }
+
+        .mutual-friends {
+            color: #65676b;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .add-friend-btn {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .add-friend-btn:hover {
+            background-color: #166fe5;
+        }
+
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            bottom: 0;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #1c1e21;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #f0f2f5;
+        }
+
+        .sidebar ul li img {
+            width: 24px;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            margin-left: 270px;
+        }
+
+        .filters {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            background-color: #f0f2f5;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .filter-btn:hover {
+            background-color: #e4e6eb;
+        }
+
+        .filter-btn.active {
+            background-color: #1877f2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="friends.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+        </a>
+    </nav>
+
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="friends.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
+                    Friends
+                </a>
+            </li>
+            <li>
+                <a href="suggested_friends.html">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friends">
+                    Suggested Friends
+                </a>
+            </li>
+            <li>
+                <a href="friends.html#friend-requests">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1250/1250592.png" alt="Friend Requests">
+                    Friend Requests
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="filters">
+                <button class="filter-btn active">All Suggestions</button>
+                <button class="filter-btn">Work</button>
+                <button class="filter-btn">School</button>
+                <button class="filter-btn">Hometown</button>
+                <button class="filter-btn">Mutual Friends</button>
+            </div>
+
+            <div class="suggestions-grid">
+                <div class="suggestion-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Emily Clark">
+                    <h3>Emily Clark</h3>
+                    <div class="mutual-friends">4 mutual friends</div>
+                    <button class="add-friend-btn">Add Friend</button>
+                </div>
+
+                <div class="suggestion-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Chris Evans">
+                    <h3>Chris Evans</h3>
+                    <div class="mutual-friends">2 mutual friends</div>
+                    <button class="add-friend-btn">Add Friend</button>
+                </div>
+
+                <div class="suggestion-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Sophia Brown">
+                    <h3>Sophia Brown</h3>
+                    <div class="mutual-friends">7 mutual friends</div>
+                    <button class="add-friend-btn">Add Friend</button>
+                </div>
+
+                <div class="suggestion-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Michael Chen">
+                    <h3>Michael Chen</h3>
+                    <div class="mutual-friends">3 mutual friends</div>
+                    <button class="add-friend-btn">Add Friend</button>
+                </div>
+
+                <div class="suggestion-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Sarah Wilson">
+                    <h3>Sarah Wilson</h3>
+                    <div class="mutual-friends">5 mutual friends</div>
+                    <button class="add-friend-btn">Add Friend</button>
+                </div>
+
+                <div class="suggestion-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="David Kim">
+                    <h3>David Kim</h3>
+                    <div class="mutual-friends">1 mutual friend</div>
+                    <button class="add-friend-btn">Add Friend</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -267,6 +267,38 @@
             font-size: 12px;
             font-weight: bold;
         }
+
+
+        .profile-dropdown {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        min-width: 150px;
+        z-index: 1000;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: background-color 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #f0f2f5;
+    }
     </style>
 </head>
 <body>
@@ -283,7 +315,14 @@
             </a>
             <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
             <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile">
+            <div class="profile-dropdown">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.html">Profile</a>
+       
+            <a href="index.html">Logout</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -397,4 +436,21 @@
         </div>
     </div>
 </body>
+<script>
+
+function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-dropdown img')) {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (dropdown && dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+        }
+    };
+</script>
 </html>

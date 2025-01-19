@@ -5,33 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friends</title>
     <style>
+        /* General body styles */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f0f2f5;
             margin: 0;
             padding: 0;
         }
+
+        /* Main container styles */
         .container {
+            display: flex;
             margin: 20px;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .sidebar ul li img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a:hover {
+            color: #1877f2; /* Facebook blue color */
+        }
+
+        /* Friends list styles */
+        .friends-list {
+            flex-grow: 1;
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+
+        .friends-list h1 {
             font-size: 24px;
             margin-bottom: 20px;
         }
-        ul {
+
+        .friends-list ul {
             list-style: none;
             padding: 0;
         }
-        ul li {
+
+        .friends-list ul li {
             margin: 10px 0;
             display: flex;
             align-items: center;
         }
-        ul li img {
+
+        .friends-list ul li img {
             width: 40px;
             border-radius: 50%;
             margin-right: 15px;
@@ -40,17 +91,56 @@
 </head>
 <body>
     <div class="container">
-        <h1>Your Friends</h1>
-        <ul>
-            <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend">
-                <span>John Doe</span>
-            </li>
-            <li>
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend">
-                <span>Jane Smith</span>
-            </li>
-        </ul>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="home.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Home">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="friends.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
+                        Friends
+                    </a>
+                </li>
+                <li>
+                    <a href="groups.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Groups">
+                        Groups
+                    </a>
+                </li>
+                <li>
+                    <a href="marketplace.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Marketplace">
+                        Marketplace
+                    </a>
+                </li>
+                <li>
+                    <a href="watch.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch">
+                        Watch
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Friends List -->
+        <div class="friends-list">
+            <h1>Your Friends</h1>
+            <ul>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend">
+                    <span>John Doe</span>
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend">
+                    <span>Jane Smith</span>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

@@ -33,9 +33,31 @@
         }
 
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
+            display: flex;
+            margin: 20px;
+            gap: 20px;
+            align-items: flex-start;
+            max-width: 1320px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            height: fit-content;
+        }
+
+        .main-content {
+            flex: 1;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            min-width: 0;
         }
 
         .suggestions-grid {
@@ -92,17 +114,6 @@
             background-color: #166fe5;
         }
 
-        .sidebar {
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 60px;
-            bottom: 0;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
         .sidebar ul {
             list-style: none;
             padding: 0;
@@ -130,11 +141,6 @@
         .sidebar ul li img {
             width: 24px;
             margin-right: 10px;
-        }
-
-        .main-content {
-            margin-left: 270px;
-            padding: 20px;
         }
 
         .filters {
@@ -174,6 +180,7 @@
         </a>
     </nav>
 
+    <div class="container">
     <div class="sidebar">
         <ul>
             <li>
@@ -198,7 +205,6 @@
     </div>
 
     <div class="main-content">
-        <div class="container">
             <div class="filters">
                 <button class="filter-btn active">All Suggestions</button>
                 <button class="filter-btn">Work</button>

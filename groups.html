@@ -63,35 +63,89 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #1c1e21;
         }
 
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin: 15px 0;
+        .sidebar-header {
             display: flex;
             align-items: center;
-            font-size: 16px;
-            font-weight: bold;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
-        .sidebar ul li img {
-            width: 30px;
+        .sidebar-header h2 {
+            margin: 0;
+            color: #1c1e21;
+        }
+
+        .settings-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .settings-icon:hover {
+            opacity: 1;
+        }
+
+        .search-groups {
+            background-color: #f0f2f5;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            width: calc(100% - 30px);
+            color: #1c1e21;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .search-groups::placeholder {
+            color: #65676b;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-menu li {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            color: #1c1e21;
+        }
+
+        .sidebar-menu li img {
+            width: 20px;
+            height: 20px;
             margin-right: 10px;
         }
 
-        .sidebar ul li a {
-            text-decoration: none;
-            color: black;
-            display: flex;
-            align-items: center;
+        .sidebar-menu li:hover {
+            background-color: #f0f2f5;
         }
 
-        .sidebar ul li a:hover {
-            color: #1877f2;
+        .create-group-btn {
+            background-color: #2374e1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .create-group-btn:hover {
+            background-color: #1a5abc;
         }
 
         .groups-content {
@@ -177,13 +231,26 @@
 
     <div class="container">
         <div class="sidebar">
-            <ul>
-                <li><a href="home.html"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Home"> Home</a></li>
-                <li><a href="friends.html"><img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends"> Friends</a></li>
-                <li><a href="groups.html"><img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Groups"> Groups</a></li>
-                <li><img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Marketplace"> Marketplace</li>
-                <li><a href="watch.html"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch"> Watch</a></li>
+            <div class="sidebar-header">
+                <h2>Groups</h2>
+                <img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png" alt="Settings" class="settings-icon">
+            </div>
+            <input type="text" placeholder="Search groups" class="search-groups">
+            <ul class="sidebar-menu">
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" alt="Feed">
+                    Your feed
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/639/639375.png" alt="Discover">
+                    Discover
+                </li>
+                <li>
+                    <img src="https://cdn-icons-png.flaticon.com/512/166/166258.png" alt="Your groups">
+                    Your groups
+                </li>
             </ul>
+            <button class="create-group-btn">+ Create New Group</button>
         </div>
 
         <div class="groups-content">

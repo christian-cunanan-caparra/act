@@ -17,7 +17,7 @@
         .container {
             display: flex;
             margin: 20px;
-            gap: 20px; /* Adds space between sidebar and friends list */
+            gap: 20px;
         }
 
         /* Sidebar styles */
@@ -55,10 +55,9 @@
         }
 
         .sidebar ul li a:hover {
-            color: #1877f2; /* Facebook blue color */
+            color: #1877f2; 
         }
 
-        /* Friends list styles */
         .friends-list {
             flex-grow: 1;
             background-color: white;
@@ -81,6 +80,11 @@
             margin: 10px 0;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
         }
 
         .friends-list ul li img {
@@ -89,39 +93,32 @@
             margin-right: 15px;
         }
 
-        /* Friend Request styles */
-        .friend-request {
-            margin-bottom: 30px;
-        }
-
-        .friend-request ul li {
+        .friends-list ul li .details {
+            flex: 1;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
         }
 
-        .friend-request ul li img {
-            width: 40px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .friend-request .buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .friend-request button {
+        .friends-list ul li button {
             padding: 8px 12px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+        }
+
+        .friends-list ul li button.add-friend {
+            background-color: #1877f2;
+            color: white;
+        }
+
+        .friends-list ul li button.add-friend:hover {
+            background-color: #165fc1;
+        }
+
+        .friends-list ul li .buttons {
+            display: flex;
+            gap: 10px;
         }
 
         .friend-request button.accept {
@@ -188,16 +185,20 @@
                 <h1>Friend Requests</h1>
                 <ul>
                     <li>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend Request">
-                        <span>Mia Khalifa</span>
+                        <div class="details">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend Request">
+                            <span>Alex Johnson</span>
+                        </div>
                         <div class="buttons">
                             <button class="accept">Accept</button>
                             <button class="decline">Decline</button>
                         </div>
                     </li>
                     <li>
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend Request">
-                        <span>Lexi lore</span>
+                        <div class="details">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend Request">
+                            <span>Maria Garcia</span>
+                        </div>
                         <div class="buttons">
                             <button class="accept">Accept</button>
                             <button class="decline">Decline</button>
@@ -206,7 +207,34 @@
                 </ul>
             </div>
 
-            <!-- Existing Friends -->
+            <!-- Suggested Friends -->
+            <div class="suggested-friends">
+                <h1>Suggested Friends</h1>
+                <ul>
+                    <li>
+                        <div class="details">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Suggested Friend">
+                            <span>Emily Clark</span>
+                        </div>
+                        <button class="add-friend">Add Friend</button>
+                    </li>
+                    <li>
+                        <div class="details">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Suggested Friend">
+                            <span>Chris Evans</span>
+                        </div>
+                        <button class="add-friend">Add Friend</button>
+                    </li>
+                    <li>
+                        <div class="details">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friend">
+                            <span>Sophia Brown</span>
+                        </div>
+                        <button class="add-friend">Add Friend</button>
+                    </li>
+                </ul>
+            </div>
+
             <h1>Your Friends</h1>
             <ul>
                 <li>

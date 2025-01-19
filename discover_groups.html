@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Groups</title>
+    <title>Discover Groups - Facebook</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -145,16 +145,16 @@
             margin-right: 10px;
         }
 
+        .sidebar-menu li:hover {
+            background-color: #f0f2f5;
+        }
+
         .sidebar-menu li a {
             text-decoration: none;
             color: #1c1e21;
             display: flex;
             align-items: center;
             width: 100%;
-        }
-
-        .sidebar-menu li:hover {
-            background-color: #f0f2f5;
         }
 
         .create-group-btn {
@@ -174,12 +174,12 @@
             background-color: #1a5abc;
         }
 
-        .groups-content {
+        .discover-content {
             flex-grow: 1;
             margin-left: 20px;
         }
 
-        .groups-header {
+        .discover-header {
             background-color: white;
             border-radius: 10px;
             padding: 20px;
@@ -187,9 +187,35 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .groups-header h1 {
+        .discover-header h1 {
             margin: 0;
             color: #1c1e21;
+        }
+
+        .categories {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background-color: #e4e6eb;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .category-btn:hover {
+            background-color: #d8dadf;
+        }
+
+        .category-btn.active {
+            background-color: #2374e1;
+            color: white;
         }
 
         .groups-grid {
@@ -201,43 +227,45 @@
         .group-card {
             background-color: white;
             border-radius: 10px;
-            padding: 15px;
+            overflow: hidden;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .group-card img {
+        .group-cover {
             width: 100%;
             height: 150px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 10px;
         }
 
-        .group-card h3 {
-            margin: 10px 0;
+        .group-info {
+            padding: 15px;
+        }
+
+        .group-info h3 {
+            margin: 0 0 5px 0;
             color: #1c1e21;
         }
 
-        .group-card p {
+        .group-meta {
             color: #65676b;
             font-size: 14px;
-            margin: 5px 0;
+            margin-bottom: 15px;
         }
 
-        .join-button {
-            background-color: #1877f2;
+        .join-btn {
+            background-color: #2374e1;
             color: white;
             border: none;
             padding: 8px 16px;
             border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
             width: 100%;
-            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
         }
 
-        .join-button:hover {
-            background-color: #166fe5;
+        .join-btn:hover {
+            background-color: #1a5abc;
         }
     </style>
 </head>
@@ -268,8 +296,10 @@
             <input type="text" placeholder="Search groups" class="search-groups">
             <ul class="sidebar-menu">
                 <li>
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" alt="Feed">
-                    Your feed
+                    <a href="groups.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828970.png" alt="Feed">
+                        Your feed
+                    </a>
                 </li>
                 <li>
                     <a href="discover_groups.html">
@@ -278,44 +308,82 @@
                     </a>
                 </li>
                 <li>
-                    <img src="https://cdn-icons-png.flaticon.com/512/166/166258.png" alt="Your groups">
-                    Your groups
+                    <a href="your_groups.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/166/166258.png" alt="Your groups">
+                        Your groups
+                    </a>
                 </li>
             </ul>
             <button class="create-group-btn">+ Create New Group</button>
         </div>
 
-        <div class="groups-content">
-            <div class="groups-header">
-                <h1>Your Groups</h1>
+        <div class="discover-content">
+            <div class="discover-header">
+                <h1>Discover Groups</h1>
+                <div class="categories">
+                    <button class="category-btn active">All Groups</button>
+                    <button class="category-btn">Technology</button>
+                    <button class="category-btn">Gaming</button>
+                    <button class="category-btn">Art & Design</button>
+                    <button class="category-btn">Sports</button>
+                    <button class="category-btn">Music</button>
+                    <button class="category-btn">Education</button>
+                </div>
             </div>
+
             <div class="groups-grid">
                 <div class="group-card">
-                    <img src="https://source.unsplash.com/random/800x600?technology" alt="Tech Group">
-                    <h3>Tech Enthusiasts</h3>
-                    <p>15.2K members • 50 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <img src="https://source.unsplash.com/random/800x600?technology" alt="Tech Enthusiasts" class="group-cover">
+                    <div class="group-info">
+                        <h3>Tech Enthusiasts</h3>
+                        <div class="group-meta">15.2K members • 50 posts/day</div>
+                        <button class="join-btn">Join Group</button>
+                    </div>
                 </div>
 
                 <div class="group-card">
-                    <img src="https://source.unsplash.com/random/800x600?gaming" alt="Gaming Group">
-                    <h3>Gaming Community</h3>
-                    <p>25K members • 100 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <img src="https://source.unsplash.com/random/800x600?gaming" alt="Gaming Community" class="group-cover">
+                    <div class="group-info">
+                        <h3>Gaming Community</h3>
+                        <div class="group-meta">25K members • 100 posts/day</div>
+                        <button class="join-btn">Join Group</button>
+                    </div>
                 </div>
 
                 <div class="group-card">
-                    <img src="https://source.unsplash.com/random/800x600?food" alt="Food Group">
-                    <h3>Food Lovers</h3>
-                    <p>10K members • 30 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <img src="https://source.unsplash.com/random/800x600?art" alt="Creative Arts" class="group-cover">
+                    <div class="group-info">
+                        <h3>Creative Arts</h3>
+                        <div class="group-meta">8.5K members • 30 posts/day</div>
+                        <button class="join-btn">Join Group</button>
+                    </div>
                 </div>
 
                 <div class="group-card">
-                    <img src="https://source.unsplash.com/random/800x600?travel" alt="Travel Group">
-                    <h3>Travel Adventures</h3>
-                    <p>20K members • 40 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <img src="https://source.unsplash.com/random/800x600?sports" alt="Sports Fans" class="group-cover">
+                    <div class="group-info">
+                        <h3>Sports Fans</h3>
+                        <div class="group-meta">12K members • 45 posts/day</div>
+                        <button class="join-btn">Join Group</button>
+                    </div>
+                </div>
+
+                <div class="group-card">
+                    <img src="https://source.unsplash.com/random/800x600?music" alt="Music Lovers" class="group-cover">
+                    <div class="group-info">
+                        <h3>Music Lovers</h3>
+                        <div class="group-meta">20K members • 75 posts/day</div>
+                        <button class="join-btn">Join Group</button>
+                    </div>
+                </div>
+
+                <div class="group-card">
+                    <img src="https://source.unsplash.com/random/800x600?education" alt="Study Group" class="group-cover">
+                    <div class="group-info">
+                        <h3>Study Group</h3>
+                        <div class="group-meta">5K members • 25 posts/day</div>
+                        <button class="join-btn">Join Group</button>
+                    </div>
                 </div>
             </div>
         </div>

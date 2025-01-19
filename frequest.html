@@ -32,15 +32,23 @@
             opacity: 0.8;
         }
 
+        .container {
+            display: flex;
+            margin: 20px;
+            gap: 20px;
+            align-items: flex-start;
+            max-width: 1320px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .sidebar {
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 60px;
-            bottom: 0;
+            width: 25%;
             background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            height: fit-content;
         }
 
         .sidebar ul {
@@ -73,13 +81,16 @@
         }
 
         .main-content {
-            margin-left: 270px;
+            flex: 1;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            min-width: 0;
         }
 
         .request-container {
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .section-header {
@@ -211,96 +222,98 @@
         </a>
     </nav>
 
-    <div class="sidebar">
-        <ul>
-            <li>
-                <a href="friends.html">
-                    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
-                    Friends
-                </a>
-            </li>
-            <li>
-                <a href="suggested.html">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friends">
-                    Suggested Friends
-                </a>
-            </li>
-            <li>
-                <a href="frequest.html">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1250/1250592.png" alt="Friend Requests">
-                    Friend Requests
-                </a>
-            </li>
-        </ul>
-    </div>
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="friends.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
+                        Friends
+                    </a>
+                </li>
+                <li>
+                    <a href="suggested.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friends">
+                        Suggested Friends
+                    </a>
+                </li>
+                <li>
+                    <a href="frequest.html">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1250/1250592.png" alt="Friend Requests">
+                        Friend Requests
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <div class="main-content">
-        <div class="request-container">
-            <div class="section-header">
-                <h1>Friend Requests</h1>
-                <span class="request-count">4 requests</span>
-            </div>
+        <div class="main-content">
+            <div class="request-container">
+                <div class="section-header">
+                    <h1>Friend Requests</h1>
+                    <span class="request-count">4 requests</span>
+                </div>
 
-            <div class="request-card">
-                <div class="request-info">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Alex Johnson">
-                    <div class="request-details">
-                        <h3>Mia Khalifa</h3>
-                        <div class="mutual-friends">8 mutual friends</div>
-                        <div class="request-time">2 days ago</div>
+                <div class="request-card">
+                    <div class="request-info">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Alex Johnson">
+                        <div class="request-details">
+                            <h3>Alex Johnson</h3>
+                            <div class="mutual-friends">8 mutual friends</div>
+                            <div class="request-time">2 days ago</div>
+                        </div>
+                    </div>
+                    <div class="request-actions">
+                        <button class="btn btn-accept">Accept</button>
+                        <button class="btn btn-decline">Decline</button>
                     </div>
                 </div>
-                <div class="request-actions">
-                    <button class="btn btn-accept">Accept</button>
-                    <button class="btn btn-decline">Decline</button>
-                </div>
-            </div>
 
-            <div class="request-card">
-                <div class="request-info">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Maria Garcia">
-                    <div class="request-details">
-                        <h3>Lexi Lore</h3>
-                        <div class="mutual-friends">3 mutual friends</div>
-                        <div class="request-time">5 days ago</div>
+                <div class="request-card">
+                    <div class="request-info">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Maria Garcia">
+                        <div class="request-details">
+                            <h3>Maria Garcia</h3>
+                            <div class="mutual-friends">3 mutual friends</div>
+                            <div class="request-time">5 days ago</div>
+                        </div>
+                    </div>
+                    <div class="request-actions">
+                        <button class="btn btn-accept">Accept</button>
+                        <button class="btn btn-decline">Decline</button>
                     </div>
                 </div>
-                <div class="request-actions">
-                    <button class="btn btn-accept">Accept</button>
-                    <button class="btn btn-decline">Decline</button>
-                </div>
-            </div>
 
-            <div class="request-card">
-                <div class="request-info">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="James Wilson">
-                    <div class="request-details">
-                        <h3>Sophie Rain</h3>
-                        <div class="mutual-friends">12 mutual friends</div>
-                        <div class="request-time">1 week ago</div>
+                <div class="request-card">
+                    <div class="request-info">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="James Wilson">
+                        <div class="request-details">
+                            <h3>James Wilson</h3>
+                            <div class="mutual-friends">12 mutual friends</div>
+                            <div class="request-time">1 week ago</div>
+                        </div>
+                    </div>
+                    <div class="request-actions">
+                        <button class="btn btn-accept">Accept</button>
+                        <button class="btn btn-decline">Decline</button>
                     </div>
                 </div>
-                <div class="request-actions">
-                    <button class="btn btn-accept">Accept</button>
-                    <button class="btn btn-decline">Decline</button>
-                </div>
-            </div>
 
-            <div class="request-card">
-                <div class="request-info">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Emma Thompson">
-                    <div class="request-details">
-                        <h3>Candy Love</h3>
-                        <div class="mutual-friends">5 mutual friends</div>
-                        <div class="request-time">2 weeks ago</div>
+                <div class="request-card">
+                    <div class="request-info">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Emma Thompson">
+                        <div class="request-details">
+                            <h3>Emma Thompson</h3>
+                            <div class="mutual-friends">5 mutual friends</div>
+                            <div class="request-time">2 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="request-actions">
+                        <button class="btn btn-accept">Accept</button>
+                        <button class="btn btn-decline">Decline</button>
                     </div>
                 </div>
-                <div class="request-actions">
-                    <button class="btn btn-accept">Accept</button>
-                    <button class="btn btn-decline">Decline</button>
-                </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </body>

@@ -203,6 +203,7 @@
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .group-card img {
@@ -216,6 +217,9 @@
         .group-card h3 {
             margin: 10px 0;
             color: #1c1e21;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .group-card p {
@@ -224,20 +228,44 @@
             margin: 5px 0;
         }
 
-        .join-button {
-            background-color: #1877f2;
-            color: white;
+        .group-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .group-action-btn {
+            background-color: #e4e6eb;
+            color: #1c1e21;
             border: none;
             padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 14px;
-            width: 100%;
-            margin-top: 10px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
-        .join-button:hover {
-            background-color: #166fe5;
+        .group-action-btn:hover {
+            background-color: #d8dadf;
+        }
+
+        .group-action-btn img {
+            width: 16px;
+            height: 16px;
+            margin: 0;
+        }
+
+        .new-posts {
+            background-color: #e7f3ff;
+            color: #1877f2;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -292,30 +320,78 @@
             <div class="groups-grid">
                 <div class="group-card">
                     <img src="https://source.unsplash.com/random/800x600?technology" alt="Tech Group">
-                    <h3>Tech Enthusiasts</h3>
+                    <h3>
+                        Tech Enthusiasts
+                        <span class="new-posts">5 new posts</span>
+                    </h3>
                     <p>15.2K members • 50 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <div class="group-actions">
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089181.png" alt="View">
+                            View Group
+                        </button>
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089157.png" alt="Share">
+                            Share
+                        </button>
+                    </div>
                 </div>
 
                 <div class="group-card">
                     <img src="https://source.unsplash.com/random/800x600?gaming" alt="Gaming Group">
-                    <h3>Gaming Community</h3>
+                    <h3>
+                        Gaming Community
+                        <span class="new-posts">12 new posts</span>
+                    </h3>
                     <p>25K members • 100 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <div class="group-actions">
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089181.png" alt="View">
+                            View Group
+                        </button>
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089157.png" alt="Share">
+                            Share
+                        </button>
+                    </div>
                 </div>
 
                 <div class="group-card">
                     <img src="https://source.unsplash.com/random/800x600?food" alt="Food Group">
-                    <h3>Food Lovers</h3>
+                    <h3>
+                        Food Lovers
+                        <span class="new-posts">3 new posts</span>
+                    </h3>
                     <p>10K members • 30 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <div class="group-actions">
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089181.png" alt="View">
+                            View Group
+                        </button>
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089157.png" alt="Share">
+                            Share
+                        </button>
+                    </div>
                 </div>
 
                 <div class="group-card">
                     <img src="https://source.unsplash.com/random/800x600?travel" alt="Travel Group">
-                    <h3>Travel Adventures</h3>
+                    <h3>
+                        Travel Adventures
+                        <span class="new-posts">8 new posts</span>
+                    </h3>
                     <p>20K members • 40 posts/day</p>
-                    <button class="join-button">Join Group</button>
+                    <div class="group-actions">
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089181.png" alt="View">
+                            View Group
+                        </button>
+                        <button class="group-action-btn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2089/2089157.png" alt="Share">
+                            Share
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

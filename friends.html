@@ -164,12 +164,95 @@
 
 
 
+            header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left img {
+            width: 40px;
+            margin-right: 15px;
+        }
+
+        .header-left input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right img {
+            width: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-header img {
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-header .name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .post-header .time {
+            color: #777;
+            font-size: 14px;
+        }
 
 
 
+        .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        min-width: 150px;
+        z-index: 1000;
+    }
 
+    .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: background-color 0.2s;
+    }
 
-
+    .dropdown-menu a:hover {
+        background-color: #f0f2f5;
+    }
 
 
 
@@ -177,26 +260,47 @@
     </head>
     <body>
             <!-- Navigation Bar -->
-    <nav>
-        <a href="home.html">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
-        </a>
-    </nav>
+            <header>
+                <div class="header-left">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+                   
+                </div>
+                <div class="header-right">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
+                    <div class="profile-dropdown">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="profile.html">Profile</a>
+               
+                    <a href="index.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
 
 
         <div class="container">
             <!-- Sidebar -->
             <div class="sidebar">
                 <ul>
+
+                    <li>
+                        <a href="home.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Friends">
+                          <b>  Home</b>
+                        </a>
+                    </li>
                     <li>
                         <a href="friends.html">
                             <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
-                            Friends
+                          <b>  Friends</b>
                         </a>
                     </li>
 
                     <li>
-                        <a href="suggested.html">
+                        <a href="suggested.html" target="_blank">
                             <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friends">
                             Suggested Friends
                         </a>
@@ -206,6 +310,27 @@
                         <a href="frequest.html">
                             <img src="https://cdn-icons-png.flaticon.com/512/1250/1250592.png" alt="Friend Requests">
                             Friend Requests
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="groups.html" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Friend Requests">
+                            Groups
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="frequest.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Friend Requests">
+                            Marketplace
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="frequest.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Friend Requests">
+                             Watch
                         </a>
                     </li>
                 </ul>
@@ -246,22 +371,22 @@
                     <ul>
                         <li>
                             <div class="details">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Suggested Friend">
-                                <span>Emily Clark</span>
+                                <img src="img/arz.jpg" alt="Suggested Friend">
+                                <span>Arzel Pinpin</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Suggested Friend">
-                                <span>Chris Evans</span>
+                                <img src="img/roma.jpg" alt="Suggested Friend">
+                                <span>Romalyn Gomez</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friend">
-                                <span>Sophia Brown</span>
+                                <img src="img/gi.jpg" alt="Suggested Friend">
+                                <span>Grosby Dela Cruz</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
@@ -272,18 +397,109 @@
                 <ul>
                     <li>
                         <div class="details">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend">
-                        <span>John Doe</span>
+                        <img src="img/468287479_575638201716744_3622098773697684960_n.jpg" alt="Friend">
+                        <span>Christian Caparra</span>
                     </div>
                     </li>
                     <li>
                         <div class="details">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend">
-                            <span>Jane Smith</span>
+                            <img src="img/473582253_1325067522250323_2018626089318684702_n.jpg" alt="Friend">
+                            <span>John Lloyd Guevarra</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="details">
+                            <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Friend">
+                            <span>Jhuniel Galang</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="details">
+                            <img src="img/422886398_8143352062343752_1286942911298102858_n.jpg" alt="Friend">
+                            <span>Michael De Ramos</span>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </body>
+    <script>
+        function likePost(button) {
+            const likeCountSpan = button.querySelector(".like-count");
+            let likeCount = parseInt(likeCountSpan.textContent);
+            likeCount++;
+            likeCountSpan.textContent = likeCount;
+        }
+    
+        function toggleCommentSection(button) {
+            const commentSection = button.parentElement.nextElementSibling;
+            commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+        }
+    
+        function addComment(event, input) {
+            if (event.key === "Enter" && input.value.trim() !== "") {
+                const commentText = input.value.trim();
+                const commentsDiv = input.nextElementSibling;
+                const newComment = document.createElement("div");
+                newComment.textContent = commentText;
+                commentsDiv.appendChild(newComment);
+                input.value = "";
+            }
+        }
+    
+    function likePost(button) {
+            const likeCountSpan = button.querySelector(".like-count");
+            let likeCount = parseInt(likeCountSpan.textContent);
+            likeCount++;
+            likeCountSpan.textContent = likeCount;
+        }
+    
+        function toggleCommentSection(button) {
+            const commentSection = button.parentElement.nextElementSibling;
+            commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+        }
+    
+        function addComment(event, input) {
+            if (event.key === "Enter" && input.value.trim() !== "") {
+                const commentText = input.value.trim();
+                const commentsDiv = input.nextElementSibling;
+                const newComment = document.createElement("div");
+                newComment.textContent = commentText;
+                commentsDiv.appendChild(newComment);
+                input.value = "";
+            }
+        }
+    
+        function searchPosts() {
+            const searchTerm = document.getElementById("searchBar").value.toLowerCase();
+            const posts = document.querySelectorAll(".post");
+    
+            posts.forEach((post) => {
+                const name = post.querySelector(".post-header .name").textContent.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    post.style.display = "block"; // Show posts that match the search term
+                } else {
+                    post.style.display = "none"; // Hide posts that don't match
+                }
+            });
+        }
+    
+    
+    
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+    
+        // Close the dropdown if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.profile-dropdown img')) {
+                const dropdown = document.getElementById("dropdownMenu");
+                if (dropdown && dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        };
+    </script>
     </html>

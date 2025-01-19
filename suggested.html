@@ -172,14 +172,121 @@
             background-color: #1877f2;
             color: white;
         }
+
+
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left img {
+            width: 40px;
+            margin-right: 15px;
+        }
+
+        .header-left input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right img {
+            width: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-header img {
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-header .name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .post-header .time {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        min-width: 150px;
+        z-index: 1000;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: background-color 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #f0f2f5;
+    }
+
+
+
     </style>
 </head>
 <body>
-    <nav>
-        <a href="friends.html">
+    <header>
+        <div class="header-left">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
-        </a>
-    </nav>
+           
+        </div>
+        <div class="header-right">
+            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
+            <div class="profile-dropdown">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.html">Profile</a>
+       
+            <a href="index.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <div class="container">
     <div class="sidebar">
@@ -216,43 +323,43 @@
 
             <div class="suggestions-grid">
                 <div class="suggestion-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Emily Clark">
-                    <h3>Emily Clark</h3>
+                    <img src="img/arz.jpg" alt="Emily Clark">
+                    <h3>Arzel Pinpin</h3>
                     <div class="mutual-friends">4 mutual friends</div>
                     <button class="add-friend-btn">Add Friend</button>
                 </div>
 
                 <div class="suggestion-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Chris Evans">
-                    <h3>Chris Evans</h3>
+                    <img src="img/roma.jpg" alt="Chris Evans">
+                    <h3>Romalyn Gomez</h3>
                     <div class="mutual-friends">2 mutual friends</div>
                     <button class="add-friend-btn">Add Friend</button>
                 </div>
 
                 <div class="suggestion-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Sophia Brown">
-                    <h3>Sophia Brown</h3>
+                    <img src="img/gi.jpg" alt="Sophia Brown">
+                    <h3>Grosby Dela Cruz</h3>
                     <div class="mutual-friends">7 mutual friends</div>
                     <button class="add-friend-btn">Add Friend</button>
                 </div>
 
                 <div class="suggestion-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Michael Chen">
-                    <h3>Michael Chen</h3>
+                    <img src="img/marv.jpg" alt="Michael Chen">
+                    <h3>Marvin Mallari </h3>
                     <div class="mutual-friends">3 mutual friends</div>
                     <button class="add-friend-btn">Add Friend</button>
                 </div>
 
                 <div class="suggestion-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Sarah Wilson">
-                    <h3>Sarah Wilson</h3>
+                    <img src="img/let.jpg" alt="Sarah Wilson">
+                    <h3>Leticia D. Flores </h3>
                     <div class="mutual-friends">5 mutual friends</div>
                     <button class="add-friend-btn">Add Friend</button>
                 </div>
 
                 <div class="suggestion-card">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="David Kim">
-                    <h3>David Kim</h3>
+                    <img src="img/es.jpg" alt="David Kim">
+                    <h3>Ester Muldong</h3>
                     <div class="mutual-friends">1 mutual friend</div>
                     <button class="add-friend-btn">Add Friend</button>
                 </div>
@@ -260,4 +367,82 @@
         </div>
     </div>
 </body>
+<script>
+    function likePost(button) {
+        const likeCountSpan = button.querySelector(".like-count");
+        let likeCount = parseInt(likeCountSpan.textContent);
+        likeCount++;
+        likeCountSpan.textContent = likeCount;
+    }
+
+    function toggleCommentSection(button) {
+        const commentSection = button.parentElement.nextElementSibling;
+        commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+    }
+
+    function addComment(event, input) {
+        if (event.key === "Enter" && input.value.trim() !== "") {
+            const commentText = input.value.trim();
+            const commentsDiv = input.nextElementSibling;
+            const newComment = document.createElement("div");
+            newComment.textContent = commentText;
+            commentsDiv.appendChild(newComment);
+            input.value = "";
+        }
+    }
+
+function likePost(button) {
+        const likeCountSpan = button.querySelector(".like-count");
+        let likeCount = parseInt(likeCountSpan.textContent);
+        likeCount++;
+        likeCountSpan.textContent = likeCount;
+    }
+
+    function toggleCommentSection(button) {
+        const commentSection = button.parentElement.nextElementSibling;
+        commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+    }
+
+    function addComment(event, input) {
+        if (event.key === "Enter" && input.value.trim() !== "") {
+            const commentText = input.value.trim();
+            const commentsDiv = input.nextElementSibling;
+            const newComment = document.createElement("div");
+            newComment.textContent = commentText;
+            commentsDiv.appendChild(newComment);
+            input.value = "";
+        }
+    }
+
+    function searchPosts() {
+        const searchTerm = document.getElementById("searchBar").value.toLowerCase();
+        const posts = document.querySelectorAll(".post");
+
+        posts.forEach((post) => {
+            const name = post.querySelector(".post-header .name").textContent.toLowerCase();
+            if (name.includes(searchTerm)) {
+                post.style.display = "block"; // Show posts that match the search term
+            } else {
+                post.style.display = "none"; // Hide posts that don't match
+            }
+        });
+    }
+
+
+
+    function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-dropdown img')) {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (dropdown && dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+        }
+    };
+</script>
 </html>

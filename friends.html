@@ -17,7 +17,7 @@
         .container {
             display: flex;
             margin: 20px;
-            gap: 20px;
+            gap: 20px; /* Adds space between sidebar and friends list */
         }
 
         /* Sidebar styles */
@@ -88,6 +88,59 @@
             border-radius: 50%;
             margin-right: 15px;
         }
+
+        /* Friend Request styles */
+        .friend-request {
+            margin-bottom: 30px;
+        }
+
+        .friend-request ul li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .friend-request ul li img {
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .friend-request .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .friend-request button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .friend-request button.accept {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .friend-request button.accept:hover {
+            background-color: #45a049;
+        }
+
+        .friend-request button.decline {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .friend-request button.decline:hover {
+            background-color: #e53935;
+        }
     </style>
 </head>
 <body>
@@ -130,6 +183,30 @@
 
         <!-- Friends List -->
         <div class="friends-list">
+            <!-- Friend Requests -->
+            <div class="friend-request">
+                <h1>Friend Requests</h1>
+                <ul>
+                    <li>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend Request">
+                        <span>Mia Khalifa</span>
+                        <div class="buttons">
+                            <button class="accept">Accept</button>
+                            <button class="decline">Decline</button>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend Request">
+                        <span>Lexi lore</span>
+                        <div class="buttons">
+                            <button class="accept">Accept</button>
+                            <button class="decline">Decline</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Existing Friends -->
             <h1>Your Friends</h1>
             <ul>
                 <li>

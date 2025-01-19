@@ -1,252 +1,296 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends</title>
-    <style>
-        /* General body styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Friends</title>
+        <style>
+            /* General body styles */
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f0f2f5;
+                margin: 0;
+                padding: 0;
+            }
 
-        /* Main container styles */
-        .container {
-            display: flex;
-            margin: 20px;
-            gap: 20px;
-        }
 
-        /* Sidebar styles */
-        .sidebar {
-            width: 25%;
-            padding: 20px;
+                    /* Navigation bar styles */
+        nav {
             background-color: white;
-            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin: 15px 0;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
-            font-size: 16px;
-            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .sidebar ul li img {
-            width: 30px;
-            margin-right: 10px;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            color: black;
-            display: flex;
-            align-items: center;
-        }
-
-        .sidebar ul li a:hover {
-            color: #1877f2; 
-        }
-
-        .friends-list {
-            flex-grow: 1;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .friends-list h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .friends-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .friends-list ul li {
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .friends-list ul li img {
+        nav img {
             width: 40px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        .friends-list ul li .details {
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
-
-        .friends-list ul li button {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
         }
 
-        .friends-list ul li button.add-friend {
-            background-color: #1877f2;
-            color: white;
+        nav img:hover {
+            opacity: 0.8;
         }
 
-        .friends-list ul li button.add-friend:hover {
-            background-color: #165fc1;
-        }
+            /* Main container styles */
+            .container {
+                display: flex;
+                margin: 20px;
+                gap: 20px;
+            }
 
-        .friends-list ul li .buttons {
-            display: flex;
-            gap: 10px;
-        }
+            /* Sidebar styles */
+            .sidebar {
+                width: 25%;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
 
-        .friend-request button.accept {
-            background-color: #4caf50;
-            color: white;
-        }
+            .sidebar ul {
+                list-style: none;
+                padding: 0;
+            }
 
-        .friend-request button.accept:hover {
-            background-color: #45a049;
-        }
+            .sidebar ul li {
+                margin: 15px 0;
+                display: flex;
+                align-items: center;
+                font-size: 16px;
+                font-weight: bold;
+            }
 
-        .friend-request button.decline {
-            background-color: #f44336;
-            color: white;
-        }
+            .sidebar ul li img {
+                width: 30px;
+                margin-right: 10px;
+            }
 
-        .friend-request button.decline:hover {
-            background-color: #e53935;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <ul>
-                <li>
-                    <a href="home.html">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Home">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="friends.html">
-                        <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
-                        Friends
-                    </a>
-                </li>
-                <li>
-                    <a href="groups.html">
-                        <img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Groups">
-                        Groups
-                    </a>
-                </li>
-                <li>
-                    <a href="marketplace.html">
-                        <img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Marketplace">
-                        Marketplace
-                    </a>
-                </li>
-                <li>
-                    <a href="watch.html">
-                        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch">
-                        Watch
-                    </a>
-                </li>
-            </ul>
-        </div>
+            .sidebar ul li a {
+                text-decoration: none;
+                color: black;
+                display: flex;
+                align-items: center;
+            }
 
-        <!-- Friends List -->
-        <div class="friends-list">
-            <!-- Friend Requests -->
-            <div class="friend-request">
-                <h1>Friend Requests</h1>
+            .sidebar ul li a:hover {
+                color: #1877f2; 
+            }
+
+            .friends-list {
+                flex-grow: 1;
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .friends-list h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .friends-list ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            .friends-list ul li {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+            }
+
+            .friends-list ul li img {
+                width: 40px;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+
+            .friends-list ul li .details {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .friends-list ul li button {
+                padding: 8px 12px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            .friends-list ul li button.add-friend {
+                background-color: #1877f2;
+                color: white;
+            }
+
+            .friends-list ul li button.add-friend:hover {
+                background-color: #165fc1;
+            }
+
+            .friends-list ul li .buttons {
+                display: flex;
+                gap: 10px;
+            }
+
+            .friend-request button.accept {
+                background-color: #4caf50;
+                color: white;
+            }
+
+            .friend-request button.accept:hover {
+                background-color: #45a049;
+            }
+
+            .friend-request button.decline {
+                background-color: #f44336;
+                color: white;
+            }
+
+            .friend-request button.decline:hover {
+                background-color: #e53935;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+            <!-- Navigation Bar -->
+    <nav>
+        <a href="home.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+        </a>
+    </nav>
+
+    
+        <div class="container">
+            <!-- Sidebar -->
+            <div class="sidebar">
                 <ul>
                     <li>
-                        <div class="details">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend Request">
-                            <span>Alex Johnson</span>
-                        </div>
-                        <div class="buttons">
-                            <button class="accept">Accept</button>
-                            <button class="decline">Decline</button>
-                        </div>
+                        <a href="home.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Home">
+                            Home
+                        </a>
                     </li>
                     <li>
-                        <div class="details">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend Request">
-                            <span>Maria Garcia</span>
-                        </div>
-                        <div class="buttons">
-                            <button class="accept">Accept</button>
-                            <button class="decline">Decline</button>
-                        </div>
+                        <a href="friends.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
+                            Friends
+                        </a>
+                    </li>
+                    <li>
+                        <a href="groups.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Groups">
+                            Groups
+                        </a>
+                    </li>
+                    <li>
+                        <a href="marketplace.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Marketplace">
+                            Marketplace
+                        </a>
+                    </li>
+                    <li>
+                        <a href="watch.html">
+                            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch">
+                            Watch
+                        </a>
                     </li>
                 </ul>
             </div>
 
-            <!-- Suggested Friends -->
-            <div class="suggested-friends">
-                <h1>Suggested Friends</h1>
+            <!-- Friends List -->
+            <div class="friends-list">
+                <!-- Friend Requests -->
+                <div class="friend-request">
+                    <h1>Friend Requests</h1>
+                    <ul>
+                        <li>
+                            <div class="details">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend Request">
+                                <span>Alex Johnson</span>
+                            </div>
+                            <div class="buttons">
+                                <button class="accept">Accept</button>
+                                <button class="decline">Decline</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="details">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend Request">
+                                <span>Maria Garcia</span>
+                            </div>
+                            <div class="buttons">
+                                <button class="accept">Accept</button>
+                                <button class="decline">Decline</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Suggested Friends -->
+                <div class="suggested-friends">
+                    <h1>Suggested Friends</h1>
+                    <ul>
+                        <li>
+                            <div class="details">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Suggested Friend">
+                                <span>Emily Clark</span>
+                            </div>
+                            <button class="add-friend">Add Friend</button>
+                        </li>
+                        <li>
+                            <div class="details">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Suggested Friend">
+                                <span>Chris Evans</span>
+                            </div>
+                            <button class="add-friend">Add Friend</button>
+                        </li>
+                        <li>
+                            <div class="details">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friend">
+                                <span>Sophia Brown</span>
+                            </div>
+                            <button class="add-friend">Add Friend</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <h1>Your Friends</h1>
                 <ul>
                     <li>
-                        <div class="details">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Suggested Friend">
-                            <span>Emily Clark</span>
-                        </div>
-                        <button class="add-friend">Add Friend</button>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend">
+                        <span>John Doe</span>
                     </li>
                     <li>
-                        <div class="details">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135800.png" alt="Suggested Friend">
-                            <span>Chris Evans</span>
-                        </div>
-                        <button class="add-friend">Add Friend</button>
-                    </li>
-                    <li>
-                        <div class="details">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friend">
-                            <span>Sophia Brown</span>
-                        </div>
-                        <button class="add-friend">Add Friend</button>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend">
+                        <span>Jane Smith</span>
                     </li>
                 </ul>
             </div>
-
-            <h1>Your Friends</h1>
-            <ul>
-                <li>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend">
-                    <span>John Doe</span>
-                </li>
-                <li>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend">
-                    <span>Jane Smith</span>
-                </li>
-            </ul>
         </div>
-    </div>
-</body>
-</html>
+    </body>
+    </html>

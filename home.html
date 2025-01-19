@@ -177,19 +177,58 @@
             color: #555;
         }
 
+
+        .profile-dropdown {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        min-width: 150px;
+        z-index: 1000;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        transition: background-color 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #f0f2f5;
+    }
+
     </style>
 </head>
 <body>
     <header>
         <div class="header-left">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
-            <input type="text" placeholder="Search Facebook">
+            <input id="searchBar" type="text" placeholder="Search Facebook" oninput="searchPosts()">
         </div>
         <div class="header-right">
             <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
             <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
             <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile">
+            <div class="profile-dropdown">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="profile.html">Profile</a>
+       
+            <a href="index.html">Logout</a>
+                </div>
+            </div>
         </div>
     </header>
     <div class="container">
@@ -344,5 +383,59 @@
             input.value = "";
         }
     }
+
+function likePost(button) {
+        const likeCountSpan = button.querySelector(".like-count");
+        let likeCount = parseInt(likeCountSpan.textContent);
+        likeCount++;
+        likeCountSpan.textContent = likeCount;
+    }
+
+    function toggleCommentSection(button) {
+        const commentSection = button.parentElement.nextElementSibling;
+        commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+    }
+
+    function addComment(event, input) {
+        if (event.key === "Enter" && input.value.trim() !== "") {
+            const commentText = input.value.trim();
+            const commentsDiv = input.nextElementSibling;
+            const newComment = document.createElement("div");
+            newComment.textContent = commentText;
+            commentsDiv.appendChild(newComment);
+            input.value = "";
+        }
+    }
+
+    function searchPosts() {
+        const searchTerm = document.getElementById("searchBar").value.toLowerCase();
+        const posts = document.querySelectorAll(".post");
+
+        posts.forEach((post) => {
+            const name = post.querySelector(".post-header .name").textContent.toLowerCase();
+            if (name.includes(searchTerm)) {
+                post.style.display = "block"; // Show posts that match the search term
+            } else {
+                post.style.display = "none"; // Hide posts that don't match
+            }
+        });
+    }
+
+
+
+    function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-dropdown img')) {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (dropdown && dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            }
+        }
+    };
 </script>
 </html>

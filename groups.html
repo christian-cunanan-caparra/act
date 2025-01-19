@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Groups</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left img {
+            width: 40px;
+            margin-right: 15px;
+        }
+
+        .header-left input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right img {
+            width: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .sidebar ul li img {
+            width: 30px;
+            margin-right: 10px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a:hover {
+            color: #1877f2;
+        }
+
+        .groups-content {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .groups-header {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .groups-header h1 {
+            margin: 0;
+            color: #1c1e21;
+        }
+
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .group-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .group-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .group-card h3 {
+            margin: 10px 0;
+            color: #1c1e21;
+        }
+
+        .group-card p {
+            color: #65676b;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .join-button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .join-button:hover {
+            background-color: #166fe5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+            <input type="text" placeholder="Search Facebook">
+        </div>
+        <div class="header-right">
+            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
+            <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="home.html"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Home"> Home</a></li>
+                <li><a href="friends.html"><img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends"> Friends</a></li>
+                <li><a href="groups.html"><img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Groups"> Groups</a></li>
+                <li><img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Marketplace"> Marketplace</li>
+                <li><a href="watch.html"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch"> Watch</a></li>
+            </ul>
+        </div>
+
+        <div class="groups-content">
+            <div class="groups-header">
+                <h1>Your Groups</h1>
+            </div>
+            <div class="groups-grid">
+                <div class="group-card">
+                    <img src="https://source.unsplash.com/random/800x600?technology" alt="Tech Group">
+                    <h3>Tech Enthusiasts</h3>
+                    <p>15.2K members • 50 posts/day</p>
+                    <button class="join-button">Join Group</button>
+                </div>
+
+                <div class="group-card">
+                    <img src="https://source.unsplash.com/random/800x600?gaming" alt="Gaming Group">
+                    <h3>Gaming Community</h3>
+                    <p>25K members • 100 posts/day</p>
+                    <button class="join-button">Join Group</button>
+                </div>
+
+                <div class="group-card">
+                    <img src="https://source.unsplash.com/random/800x600?food" alt="Food Group">
+                    <h3>Food Lovers</h3>
+                    <p>10K members • 30 posts/day</p>
+                    <button class="join-button">Join Group</button>
+                </div>
+
+                <div class="group-card">
+                    <img src="https://source.unsplash.com/random/800x600?travel" alt="Travel Group">
+                    <h3>Travel Adventures</h3>
+                    <p>20K members • 40 posts/day</p>
+                    <button class="join-button">Join Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

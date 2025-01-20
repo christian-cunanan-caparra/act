@@ -3,109 +3,297 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch Videos</title>
+  <title>Watch | FB Clone</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+    }
+
+    header {
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left img {
+      width: 40px;
+      margin-right: 15px;
+    }
+
+    .header-left input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      width: 300px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-right img {
+      width: 40px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .profile-dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 150px;
+      z-index: 1000;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0f2f5;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow-y: auto;
+      margin-top: 60px; /* Adjust for header height */
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .sidebar a:hover {
+      background-color: #f0f2f5;
+    }
+
+    .sidebar a i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .main-content {
+      margin-left: 270px;
+      padding: 20px;
+      margin-top: 60px; /* Adjust for header height */
+    }
+
+    .videos-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .videos-header {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .videos-header h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .watch-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #1877f2;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .video-card {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-card img,
+    .video-card video {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .video-title {
+      padding: 10px;
+      font-size: 1rem;
+      color: #333;
+      text-align: center;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .user-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .user-info span {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-top: 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        margin-top: 0;
+      }
+
+      .videos-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .videos-header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
-
-<style>
-    /* Watch Videos Page */
-.videos-container {
-  background-color: #f0f2f5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.videos-header {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.videos-header h1 {
-  font-size: 2rem;
-  color: #333;
-}
-
-.watch-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #fff;
-  background-color: #1877f2;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.video-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.video-card {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.video-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-bottom: 2px solid #ddd;
-}
-
-.video-title {
-  padding: 10px;
-  font-size: 1rem;
-  color: #333;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .videos-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .videos-header h1 {
-    font-size: 1.5rem;
-  }
-}
-
-</style>
 <body>
-  <div class="container videos-container">
-    <div class="videos-header">
-      <h1>Watch Videos</h1>
-      <button class="watch-button">Watch Now</button>
+  <header>
+    <div class="header-left">
+      <img src="img/facebook-logo-0.png" alt="Facebook Logo">
+      <input id="searchBar" type="text" placeholder="Search Facebook" oninput="searchPosts()">
     </div>
-    
-    <div class="video-gallery">
-      <div class="video-card">
-        <img src="https://via.placeholder.com/300x200" alt="Video Thumbnail">
-        <p class="video-title">Sample Video 1</p>
+    <div class="header-right">
+      <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
+      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
+      <div class="profile-dropdown">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
+        <div class="dropdown-menu" id="dropdownMenu">
+          <a href="profile.html">Profile</a>
+          <a href="index.html">Logout</a>
+        </div>
       </div>
-      <div class="video-card">
-        <img src="https://via.placeholder.com/300x200" alt="Video Thumbnail">
-        <p class="video-title">Sample Video 2</p>
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <a href="home.html"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-video"></i> Live</a>
+    <a href="#"><i class="fas fa-film"></i> Reels</a>
+    <a href="#"><i class="fas fa-tv"></i> Shows</a>
+    <a href="#"><i class="fas fa-compass"></i> Explore</a>
+    <a href="#"><i class="fas fa-bookmark"></i> Saved Videos</a>
+  </div>
+
+  <div class="main-content">
+    <div class="videos-container">
+      <div class="videos-header">
+        <h1>Watch</h1>
+        <button class="watch-button">Upload Video</button>
       </div>
-      <div class="video-card">
-        <img src="https://via.placeholder.com/300x200" alt="Video Thumbnail">
-        <p class="video-title">Sample Video 3</p>
-      </div>
-      <div class="video-card">
-        <img src="https://via.placeholder.com/300x200" alt="Video Thumbnail">
-        <p class="video-title">Sample Video 4</p>
+
+      <div class="video-gallery">
+        <!-- Video Card Example -->
+        <div class="video-card">
+          <div class="user-info">
+            <img src="https://via.placeholder.com/40" alt="User Profile">
+            <span>User Name</span>
+          </div>
+          <video controls>
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="video-title">Uploaded Video 1</p>
+        </div>
+
+        <div class="video-card">
+          <div class="user-info">
+            <img src="https://via.placeholder.com/40" alt="User Profile">
+            <span>Another User</span>
+          </div>
+          <video controls>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <p class="video-title">Uploaded Video 2</p>
+        </div>
+
+        <div class="video-card">
+          <div class="user-info">
+            <img src="https://via.placeholder.com/40" alt="User Profile">
+            <span>Random User</span>
+          </div>
+          <img src="https://via.placeholder.com/300x200" alt="Thumbnail for video">
+          <p class="video-title">Uploaded Video 3</p>
+        </div>
       </div>
     </div>
   </div>

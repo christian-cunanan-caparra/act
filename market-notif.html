@@ -322,9 +322,9 @@ header {
       <h1>Marketplace</h1>
       <nav>
         <ul>
-          <li><a href="#">Browse all</a></li>
-          <li><a href="#">Notifications</a></li>
-          <li><a href="#">Inbox</a></li>
+          <li><a href="marketplace.html">Browse all</a></li>
+          <li><a href="market-notif.html">Notifications</a></li>
+          <li><a href="market-inbox.html">Inbox</a></li>
           <li><a href="#">Buying</a></li>
           <li><a href="#">Selling</a></li>
         </ul>
@@ -362,4 +362,21 @@ header {
     </main>
   </div>
 </body>
+<script>
+
+  function toggleDropdown() {
+          const dropdown = document.getElementById("dropdownMenu");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+  
+      // Close the dropdown if clicked outside
+      window.onclick = function(event) {
+          if (!event.target.matches('.profile-dropdown img')) {
+              const dropdown = document.getElementById("dropdownMenu");
+              if (dropdown && dropdown.style.display === "block") {
+                  dropdown.style.display = "none";
+              }
+          }
+      };
+  </script>
 </html>

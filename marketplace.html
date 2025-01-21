@@ -17,6 +17,76 @@ body {
   background-color: #f0f2f5;
 }
 
+header {
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left img {
+      width: 40px;
+      margin-right: 15px;
+    }
+
+    .header-left input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      width: 300px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-right img {
+      width: 40px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .profile-dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      min-width: 150px;
+      z-index: 1000;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0f2f5;
+    }
 .container {
   display: flex;
   min-height: 100vh;
@@ -24,34 +94,91 @@ body {
 
 
 .sidebar {
-  width: 250px;
-  background-color: #ffffff;
+  width: 300px; /* Adjust width */
+  background-color: #f5f6f7;
+  padding: 15px;
   border-right: 1px solid #ddd;
-  padding: 20px;
 }
+
+.sidebar {
+                width: 25%;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
 
 .sidebar h1 {
-  font-size: 24px;
-  color: #1877f2;
+  font-size: 20px;
+  color: #333;
   margin-bottom: 20px;
+  text-align: left;
 }
 
-.sidebar nav ul {
+.sidebar ul {
   list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
 }
 
-.sidebar nav ul li {
+.sidebar ul li {
   margin-bottom: 10px;
 }
 
-.sidebar nav ul li a {
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: #333;
-  font-size: 16px;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-.sidebar nav ul li a:hover {
+.sidebar ul li a:hover {
+  background-color: #e4e6eb;
+}
+
+.create-listing-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #e7f3ff;
   color: #1877f2;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-listing-btn:hover {
+  background-color: #d6eaff;
+}
+
+.location,
+.categories {
+  margin-bottom: 20px;
+}
+
+.location h2,
+.categories h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.location p {
+  font-size: 14px;
+  color: #777;
+}
+
+.categories ul li a {
+  font-size: 14px;
+  color: #1877f2;
+  text-decoration: none;
 }
 
 
@@ -128,23 +255,60 @@ body {
     margin-bottom: 10px;
   }
 
+  
+
+
 </style>
 </head>
 <body>
+
+  
+  <header>
+    <div class="header-left">
+        <img src="img/facebook-logo-0.png" alt="Facebook Logo">
+       
+    </div>
+    <div class="header-right">
+        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
+        <div class="profile-dropdown">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="profile.html">Profile</a>
+   
+        <a href="index.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+  
+
   <div class="container">
+
   
     <aside class="sidebar">
       <h1>Marketplace</h1>
       <nav>
         <ul>
-          <li><a href="home.html">Home</a></li>
-          <li><a href="#">Browse All</a></li>
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Your Listings</a></li>
-          <li><a href="#">Saved</a></li>
-          <li><a href="#">Messages</a></li>
-          <li><a href="#">Account Settings</a></li>
+          <li><a href="#">Browse all</a></li>
+          <li><a href="#">Notifications</a></li>
+          <li><a href="#">Inbox</a></li>
+          <li><a href="#">Buying</a></li>
+          <li><a href="#">Selling</a></li>
         </ul>
+        <button class="create-listing-btn">+ Create new listing</button>
+        <div class="location">
+          <h2>Location</h2>
+          <p>Sta. Ana, Pampanga · Within 12 km</p>
+        </div>
+        <div class="categories">
+          <h2>Categories</h2>
+          <ul>
+            <li><a href="#">Vehicles</a></li>
+          </ul>
+        </div>
       </nav>
     </aside>
 
@@ -233,6 +397,13 @@ body {
             <h3>Yamaha NMAX</h3>
             <p>Php 182 999</p>
           </div>
+
+          <div class="product-card">
+            <img src="img/onikuma headphone.webp" alt="Product 6">
+            <h3>Onikuma Headphone</h3>
+            <p>Php 1 200</p>
+          </div>
+          
           
           
           

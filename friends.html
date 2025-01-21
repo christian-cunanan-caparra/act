@@ -6,231 +6,226 @@
         <title>Friends</title>
         <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <style>
-            /* General body styles */
-            body {
-                font-family: 'Arial', sans-serif;
-                background-color: #f0f2f5;
-                margin: 0;
-                padding: 0;
-            }
+       <style>
+    /* General body styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+    }
 
+    /* Navigation bar styles */
+    nav {
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-                    /* Navigation bar styles */
-        nav {
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    nav img {
+        width: 40px;
+        cursor: pointer;
+    }
 
-        nav img {
-            width: 40px;
-            cursor: pointer;
-        }
+    nav img:hover {
+        opacity: 0.8;
+    }
 
-        nav img:hover {
-            opacity: 0.8;
-        }
+    /* Main container styles */
+    .container {
+        display: flex;
+        margin: 20px;
+        gap: 20px;
+    }
 
-            /* Main container styles */
-            .container {
-                display: flex;
-                margin: 20px;
-                gap: 20px;
-            }
+    .sidebar {
+        width: 25%;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-            .sidebar {
-            width: 25%;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    .sidebar ul li {
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
-        .sidebar ul li {
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            font-weight: bold;
-        }
+    .sidebar ul li i {
+        width: 30px;
+        margin-right: 10px;
+    }
 
-        .sidebar ul li i {
-            width: 30px;
-            margin-right: 10px;
-        }
+    .sidebar ul li a {
+        text-decoration: none;
+        color: black;
+        display: flex;
+        align-items: center;
+    }
 
-        .sidebar ul li a {
-            text-decoration: none;
-            color: black;
-            display: flex;
-            align-items: center;
-        }
+    .sidebar ul li a:hover {
+        color: #1877f2; /* Facebook blue color */
+    }
 
-        .sidebar ul li a:hover {
-            color: #1877f2; /* Facebook blue color */
-        }
+    .friends-list {
+        flex-grow: 1;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-            .friends-list {
-                flex-grow: 1;
-                background-color: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
+    .friends-list h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
-            .friends-list h1 {
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
+    .friends-list ul {
+        list-style: none;
+        padding: 0;
+    }
 
-            .friends-list ul {
-                list-style: none;
-                padding: 0;
-            }
+    .friends-list ul li {
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+    }
 
-            .friends-list ul li {
-                margin: 10px 0;
-                display: flex;
-                align-items: center;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 10px;
-                background-color: #f9f9f9;
-            }
+    .friends-list ul li img {
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
 
-            .friends-list ul li img {
-                width: 40px;
-                border-radius: 50%;
-                margin-right: 15px;
-            }
+    .friends-list ul li .details {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-            .friends-list ul li .details {
-                flex: 1;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
+    .friends-list ul li button {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-            .friends-list ul li button {
-                padding: 8px 12px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-weight: bold;
-            }
+    .friends-list ul li button.add-friend {
+        background-color: #1877f2;
+        color: white;
+    }
 
-            .friends-list ul li button.add-friend {
-                background-color: #1877f2;
-                color: white;
-            }
+    .friends-list ul li button.add-friend:hover {
+        background-color: #165fc1;
+    }
 
-            .friends-list ul li button.add-friend:hover {
-                background-color: #165fc1;
-            }
+    .friends-list ul li .buttons {
+        display: flex;
+        gap: 10px;
+    }
 
-            .friends-list ul li .buttons {
-                display: flex;
-                gap: 10px;
-            }
+    .friend-request button.accept {
+        background-color: #4caf50;
+        color: white;
+    }
 
-            .friend-request button.accept {
-                background-color: #4caf50;
-                color: white;
-            }
+    .friend-request button.accept:hover {
+        background-color: #45a049;
+    }
 
-            .friend-request button.accept:hover {
-                background-color: #45a049;
-            }
+    .friend-request button.decline {
+        background-color: #f44336;
+        color: white;
+    }
 
-            .friend-request button.decline {
-                background-color: #f44336;
-                color: white;
-            }
+    .friend-request button.decline:hover {
+        background-color: #e53935;
+    }
 
-            .friend-request button.decline:hover {
-                background-color: #e53935;
-            }
+    /* Responsive header styles */
+    header {
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
+    .header-left {
+        display: flex;
+        align-items: center;
+    }
 
+    .header-left img {
+        width: 40px;
+        margin-right: 15px;
+    }
 
+    .header-left input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        width: 300px;
+    }
 
-            header {
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+    .header-right {
+        display: flex;
+        align-items: center;
+    }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
+    .header-right img {
+        width: 40px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
 
-        .header-left img {
-            width: 40px;
-            margin-right: 15px;
-        }
+    .post-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
 
-        .header-left input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            width: 300px;
-        }
+    .post-header img {
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-        }
+    .post-header .name {
+        font-weight: bold;
+        font-size: 16px;
+    }
 
-        .header-right img {
-            width: 40px;
-            margin: 0 10px;
-            cursor: pointer;
-        }
+    .post-header .time {
+        color: #777;
+        font-size: 14px;
+    }
 
-
-        .post-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .post-header img {
-            width: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .post-header .name {
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .post-header .time {
-            color: #777;
-            font-size: 14px;
-        }
-
-
-
-        .dropdown-menu {
+    /* Dropdown menu */
+    .dropdown-menu {
         display: none;
         position: absolute;
         right: 0;
@@ -272,7 +267,10 @@
         }
     }
 
-        </style>
+
+    
+</style>
+
     </head>
     <body>
             <!-- Navigation Bar -->

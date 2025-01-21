@@ -44,43 +44,42 @@
                 gap: 20px;
             }
 
-            /* Sidebar styles */
             .sidebar {
-                width: 25%;
-                padding: 20px;
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
+            width: 25%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-            .sidebar ul {
-                list-style: none;
-                padding: 0;
-            }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-            .sidebar ul li {
-                margin: 15px 0;
-                display: flex;
-                align-items: center;
-                font-size: 16px;
-                font-weight: bold;
-            }
+        .sidebar ul li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-            .sidebar ul li img {
-                width: 30px;
-                margin-right: 10px;
-            }
+        .sidebar ul li i {
+            width: 30px;
+            margin-right: 10px;
+        }
 
-            .sidebar ul li a {
-                text-decoration: none;
-                color: black;
-                display: flex;
-                align-items: center;
-            }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+        }
 
-            .sidebar ul li a:hover {
-                color: #1877f2; 
-            }
+        .sidebar ul li a:hover {
+            color: #1877f2; /* Facebook blue color */
+        }
 
             .friends-list {
                 flex-grow: 1;
@@ -305,8 +304,8 @@
 
                     <li>
                         <a href="home.html">
-                            <i class="fas fa-home"></i>
-                          <b>  Home</b>
+                            <i class="fas fa-home"> </i>
+                          Home
                         </a>
                     </li>
                     <li>
@@ -435,7 +434,7 @@
             </div>
         </div>
     </body>
-    <!-- <script>
+    <script>
         function likePost(button) {
             const likeCountSpan = button.querySelector(".like-count");
             let likeCount = parseInt(likeCountSpan.textContent);
@@ -512,5 +511,5 @@
                 }
             }
         };
-    </script> -->
+    </script>
     </html>

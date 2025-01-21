@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live | FB Clone</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #4267B2;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .header .search-bar {
+      flex: 1;
+      margin: 0 20px;
+    }
+    .header .search-bar input {
+      width: 100%;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    .header .icons {
+      display: flex;
+      align-items: center;
+    }
+    .header .icons i {
+      margin-left: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .main {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .main .sidebar {
+      width: 300px;
+      margin-right: 20px;
+    }
+    .main .content {
+      flex: 1;
+      max-width: 600px;
+    }
+    .main .content .post {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .main .content .post .post-header {
+      display: flex;
+      align-items: center;
+    }
+    .main .content .post .post-header img {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    .main .content .post .post-header .name {
+      font-weight: bold;
+    }
+    .main .content .post .post-body {
+      margin-top: 10px;
+    }
+    .main .content .post .post-body img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .main .content .post .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .main .content .post .post-footer .actions {
+      display: flex;
+      align-items: center;
+    }
+    .main .content .post .post-footer .actions i {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">FB Clone</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="icons">
+      <i class="fas fa-home"></i>
+      <i class="fas fa-user-friends"></i>
+      <i class="fas fa-bell"></i>
+      <i class="fas fa-cog"></i>
+    </div>
+  </div>
+  <div class="main">
+    <div class="sidebar">
+      <!-- Sidebar content -->
+    </div>
+    <div class="content">
+      <div class="post">
+        <div class="post-header">
+          <img src="https://via.placeholder.com/40" alt="User">
+          <div class="name">John Doe</div>
+        </div>
+        <div class="post-body">
+          <p>This is a sample post.</p>
+          <img src="https://via.placeholder.com/600x400" alt="Post Image">
+        </div>
+        <div class="post-footer">
+          <div class="actions">
+            <i class="fas fa-thumbs-up"></i>
+            <i class="fas fa-comment"></i>
+            <i class="fas fa-share"></i>
+          </div>
+          <div class="timestamp">2 hours ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Newsfeed</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
         /* General styles */
         body {
@@ -54,6 +56,84 @@
             cursor: pointer;
         }
 
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f0f2f5;
+        }
+
+        @media (max-width: 768px) {
+            .header-left input {
+                width: 200px;
+            }
+
+            .header-right img {
+                width: 30px;
+                margin: 0 5px;
+            }
+
+            .profile-dropdown img {
+                width: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .header-left input {
+                width: calc(100% - 60px);
+                margin-left: 10px;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 10px;
+            }
+
+            .header-right img {
+                width: 25px;
+                margin: 0 5px;
+            }
+
+            .profile-dropdown img {
+                width: 25px;
+            }
+        }
+
         /* Container styles */
         .container {
             display: flex;
@@ -82,12 +162,12 @@
             font-weight: bold;
         }
 
-        .sidebar ul li img {
+        .sidebar ul li i {
             width: 30px;
             margin-right: 10px;
         }
 
-                .sidebar ul li a {
+        .sidebar ul li a {
             text-decoration: none;
             color: black;
             display: flex;
@@ -98,7 +178,7 @@
             color: #1877f2; /* Facebook blue color */
         }
 
-        /* Newsfeed styles hhjhjjhhjhjh*/
+        /* Newsfeed styles */
         .newsfeed {
             flex-grow: 1;
             margin-left: 20px;
@@ -216,7 +296,7 @@
 <body>
     <header>
         <div class="header-left">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+            <img src="img/facebook-logo-0.png" alt="Facebook Logo">
             <input id="searchBar" type="text" placeholder="Search Facebook" oninput="searchPosts()">
         </div>
         <div class="header-right">
@@ -238,15 +318,14 @@
         <div class="sidebar">
             <ul>
                 
-                <li><a href="home.html"><img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Home"> Home</a></li>
-                <li><a href="friends.html"><img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends"> Friends</a></li>
-                <li><a href="groups.html" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Groups"> Groups</a></li>
-
-                <li><img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Marketplace"> Marketplace</li>
-                <li><a href="watch.html"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Watch"> Watch</a></li>
+                <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="friends.html"><i class="fas fa-user-friends"></i> Friends</a></li>
+                <li><a href="groups.html" target="_blank"><i class="fas fa-users"></i> Groups</a></li>
+                <li><a href="marketplace.html"><i class="fas fa-store"></i> Marketplace</a></li>
+                <li><a href="watch.html"><i class="fas fa-tv"></i> Watch</a></li>
             </ul>
         </div>
-    <!----ANO BAGO----->>
+    <!----ANO BAGO----->
         <!-- Newsfeed -->
         <div class="newsfeed">
             <div class="post">
@@ -364,7 +443,7 @@
     </div>
     
 </body>
-<script>
+<!-- <script>
     function likePost(button) {
         const likeCountSpan = button.querySelector(".like-count");
         let likeCount = parseInt(likeCountSpan.textContent);
@@ -441,5 +520,5 @@ function likePost(button) {
             }
         }
     };
-</script>
+</script> -->
 </html>

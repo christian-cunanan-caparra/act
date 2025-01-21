@@ -1,9 +1,11 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Friends</title>
+        <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <style>
             /* General body styles */
             body {
@@ -254,7 +256,22 @@
         background-color: #f0f2f5;
     }
 
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            margin: 10px;
+        }
 
+        .sidebar {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .friends-list {
+            width: 100%;
+        }
+    }
 
         </style>
     </head>
@@ -262,7 +279,7 @@
             <!-- Navigation Bar -->
             <header>
                 <div class="header-left">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+                    <img src="img/facebook-logo-0.png" alt="Facebook Logo">
                    
                 </div>
                 <div class="header-right">
@@ -288,48 +305,48 @@
 
                     <li>
                         <a href="home.html">
-                            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Friends">
+                            <i class="fas fa-home"></i>
                           <b>  Home</b>
                         </a>
                     </li>
                     <li>
                         <a href="friends.html">
-                            <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Friends">
+                            <i class="fas fa-user-friends"></i>
                           <b>  Friends</b>
                         </a>
                     </li>
 
                     <li>
-                        <a href="suggested.html" target="_blank">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Suggested Friends">
+                        <a href="suggested.html">
+                            <i class="fas fa-user-plus"></i>
                             Suggested Friends
                         </a>
                     </li>
 
                     <li>
                         <a href="frequest.html">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1250/1250592.png" alt="Friend Requests">
+                            <i class="fas fa-user-check"></i>
                             Friend Requests
                         </a>
                     </li>
 
                     <li>
                         <a href="groups.html" target="_blank">
-                            <img src="https://cdn-icons-png.flaticon.com/512/633/633780.png" alt="Friend Requests">
+                            <i class="fas fa-users"></i>
                             Groups
                         </a>
                     </li>
 
                     <li>
-                        <a href="frequest.html">
-                            <img src="https://cdn-icons-png.flaticon.com/512/2989/2989983.png" alt="Friend Requests">
+                        <a href="marketplace.html">
+                            <i class="fas fa-store"></i>
                             Marketplace
                         </a>
                     </li>
 
                     <li>
-                        <a href="frequest.html">
-                            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Friend Requests">
+                        <a href="watch.html">
+                            <i class="fas fa-tv"></i>
                              Watch
                         </a>
                     </li>
@@ -344,23 +361,17 @@
                     <ul>
                         <li>
                             <div class="details">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Friend Request">
-                                <span>Mia Khalifa</span>
+                                <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
+                                <span>PEOPLE 1</span>
                             </div>
-                            <div class="buttons">
-                                <button class="accept">Accept</button>
-                                <button class="decline">Decline</button>
-                            </div>
+                            <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
-                                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Friend Request">
-                                <span>Lexi Lore</span>
+                                <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
+                                <span>PEOPLE 2</span>
                             </div>
-                            <div class="buttons">
-                                <button class="accept">Accept</button>
-                                <button class="decline">Decline</button>
-                            </div>
+                            <button class="add-friend">Add Friend</button>
                         </li>
                     </ul>
                 </div>
@@ -371,22 +382,22 @@
                     <ul>
                         <li>
                             <div class="details">
-                                <img src="img/arz.jpg" alt="Suggested Friend">
-                                <span>Arzel Pinpin</span>
+                                <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
+                                <span>PEOPLE 3</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
-                                <img src="img/roma.jpg" alt="Suggested Friend">
-                                <span>Romalyn Gomez</span>
+                                <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
+                                <span>PEOPLE 4</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
-                                <img src="img/gi.jpg" alt="Suggested Friend">
-                                <span>Grosby Dela Cruz</span>
+                                <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
+                                <span>PEOPLE 5</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
@@ -398,33 +409,33 @@
                     <li>
                         <div class="details">
                         <img src="img/468287479_575638201716744_3622098773697684960_n.jpg" alt="Friend">
-                        <span>Christian Caparra</span>
+                        <span>PEOPLE 6</span>
                     </div>
                     </li>
                     <li>
                         <div class="details">
                             <img src="img/473582253_1325067522250323_2018626089318684702_n.jpg" alt="Friend">
-                            <span>John Lloyd Guevarra</span>
+                            <span>PEOPLE 7</span>
                         </div>
                     </li>
                     <li>
                         <div class="details">
                             <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Friend">
-                            <span>Jhuniel Galang</span>
+                            <span>PEOPLE 8</span>
                         </div>
                     </li>
 
                     <li>
                         <div class="details">
                             <img src="img/422886398_8143352062343752_1286942911298102858_n.jpg" alt="Friend">
-                            <span>Michael De Ramos</span>
+                            <span>PEOPLE 9</span>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </body>
-    <script>
+    <!-- <script>
         function likePost(button) {
             const likeCountSpan = button.querySelector(".like-count");
             let likeCount = parseInt(likeCountSpan.textContent);
@@ -501,5 +512,5 @@
                 }
             }
         };
-    </script>
+    </script> -->
     </html>

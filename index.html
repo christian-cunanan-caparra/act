@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Facebook Login Page</title>
   <link rel="stylesheet" href="style.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png">
+
 </head>
 
 <style>
@@ -154,9 +157,11 @@
     <!-- Right Section (Login Form) -->
     <div class="right-section">
       <div class="login-form">
-        <form>
+        <form action="#" method="POST">
+
           <input type="email" placeholder="Email or Phone Number" >
-          <input type="password" placeholder="Password" >
+          <input type="password" placeholder="Password" autocomplete="off">
+
           <a href="home.html"><button type="button">Log In</button> </a>
           <a href="forgot-password.html">Forgotten password?</a>
           <hr>

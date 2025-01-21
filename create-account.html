@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create New Account</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png">
   <style>
 
 .create-account-container {
@@ -24,11 +25,18 @@
     text-align: center;
   }
   
-  .create-account-form h1 {
+  .create-account-form h2 {
     font-size: 1.8rem;
     color: #333;
     margin-bottom: 10px;
   }
+
+  .facebook-logo {
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  color: #1877f2;
+  margin-bottom: 20px;
+}
   
   .create-account-form p {
     font-size: 1rem;
@@ -125,7 +133,8 @@
 <body>
   <div class="container create-account-container">
     <div class="create-account-form">
-      <h1>Create a New Account</h1>
+      <h1 class="facebook-logo">facebook</h1>
+      <h2>Create a New Account</h2>
       <p>It's quick and easy.</p>
       <hr>
       <form>
@@ -134,7 +143,7 @@
           <input type="text" placeholder="Last name" required>
         </div>
         <input type="text" placeholder="Mobile number or email address">
-        <input type="password" placeholder="New password">
+        <input type="text" placeholder="New password">
 
         <label for="birthday">Birthday</label>
         <div class="birthday-fields">
@@ -250,10 +259,15 @@
          
         </div>
 
-        <p class="terms">By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Privacy Policy</a>, and <a href="#">Cookies Policy</a>.</p>
+       
 
        
-         <a href="index.html"><button type="button" class="sign-up-button">Sign Up</button> </a>
+         <a href="create-account.html"><button type="button" class="sign-up-button">Sign Up</button> </a>
+
+         <p style="margin-top: 15px;">
+          <a href="index.html" style="color: #1877f2; text-decoration: none; font-size: 0.9rem;">Already have an account?</a>
+        </p>
+        
       </form>
     </div>
   </div>

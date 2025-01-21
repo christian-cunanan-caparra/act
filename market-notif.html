@@ -362,4 +362,21 @@ header {
     </main>
   </div>
 </body>
+<script>
+
+  function toggleDropdown() {
+          const dropdown = document.getElementById("dropdownMenu");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+  
+      // Close the dropdown if clicked outside
+      window.onclick = function(event) {
+          if (!event.target.matches('.profile-dropdown img')) {
+              const dropdown = document.getElementById("dropdownMenu");
+              if (dropdown && dropdown.style.display === "block") {
+                  dropdown.style.display = "none";
+              }
+          }
+      };
+  </script>
 </html>

@@ -265,11 +265,15 @@ header {
   
   <header>
     <div class="header-left">
-        <img src="img/facebook-logo-0.png" alt="Facebook Logo">
-       
+        <a href="home.html">
+            <img src="img/facebook-logo-0.png" alt="Facebook Logo">
+        </a>
+        <input type="text" placeholder="Search Facebook">
     </div>
     <div class="header-right">
-        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+        <a href="home.html">
+            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+        </a>
         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
         <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
         <div class="profile-dropdown">
@@ -414,4 +418,22 @@ header {
     </main>
   </div>
 </body>
+
+<script>
+
+  function toggleDropdown() {
+          const dropdown = document.getElementById("dropdownMenu");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+  
+      // Close the dropdown if clicked outside
+      window.onclick = function(event) {
+          if (!event.target.matches('.profile-dropdown img')) {
+              const dropdown = document.getElementById("dropdownMenu");
+              if (dropdown && dropdown.style.display === "block") {
+                  dropdown.style.display = "none";
+              }
+          }
+      };
+  </script>
 </html>

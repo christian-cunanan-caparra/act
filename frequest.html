@@ -304,7 +304,59 @@
         background-color: #f0f2f5;
     }
 
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            margin: 10px;
+        }
 
+        .sidebar {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            width: 100%;
+        }
+
+        .header-left input {
+            width: 200px;
+        }
+
+        .header-right img {
+            width: 30px;
+            margin: 0 5px;
+        }
+
+        .request-info img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .btn {
+            padding: 6px 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header-left input {
+            width: 150px;
+        }
+
+        .header-right img {
+            width: 25px;
+            margin: 0 3px;
+        }
+
+        .request-info img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .btn {
+            padding: 5px 10px;
+        }
+    }
 
     </style>
 </head>

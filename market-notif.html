@@ -255,6 +255,36 @@ header {
     margin-bottom: 10px;
   }
 
+  .main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.main-content h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.notification-box {
+  text-align: center;
+  background-color: #f0f2f5;
+  padding: 50px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bell-icon {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.no-notifications {
+  font-size: 16px;
+  color: #606770;
+}
+
   
 
 
@@ -314,7 +344,13 @@ header {
 
     <main class="main-content">
      
-      
+        <div class="main-content">
+            <h1>Notifications</h1>
+            <div class="notification-box">
+              <img src="img/bell.png" alt="Bell Icon" class="bell-icon">
+              <p class="no-notifications">You have no notifications.</p>
+            </div>
+        </div>
           
           
           
@@ -322,7 +358,7 @@ header {
           
           
           
-    
+     
     </main>
   </div>
 </body>

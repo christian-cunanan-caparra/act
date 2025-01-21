@@ -256,6 +256,51 @@
       .videos-header h1 {
         font-size: 1.5rem;
       }
+
+      .header-left input {
+        width: 200px;
+      }
+
+      .header-right img {
+        width: 30px;
+        margin: 0 5px;
+      }
+
+      .profile-dropdown img {
+        width: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-left {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .header-left input {
+        width: calc(100% - 60px);
+        margin-left: 10px;
+      }
+
+      .header-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      .header-right img {
+        width: 25px;
+        margin: 0 5px;
+      }
+
+      .profile-dropdown img {
+        width: 25px;
+      }
     }
   </style>
 </head>

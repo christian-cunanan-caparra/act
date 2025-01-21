@@ -25,11 +25,18 @@
     text-align: center;
   }
   
-  .create-account-form h1 {
+  .create-account-form h2 {
     font-size: 1.8rem;
     color: #333;
     margin-bottom: 10px;
   }
+
+  .facebook-logo {
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  color: #1877f2;
+  margin-bottom: 20px;
+}
   
   .create-account-form p {
     font-size: 1rem;
@@ -126,7 +133,8 @@
 <body>
   <div class="container create-account-container">
     <div class="create-account-form">
-      <h1>Create a New Account</h1>
+      <h1 class="facebook-logo">facebook</h1>
+      <h2>Create a New Account</h2>
       <p>It's quick and easy.</p>
       <hr>
       <form>
@@ -254,7 +262,12 @@
        
 
        
-         <a href="index.html"><button type="button" class="sign-up-button">Sign Up</button> </a>
+         <a href="create-account.html"><button type="button" class="sign-up-button">Sign Up</button> </a>
+
+         <p style="margin-top: 15px;">
+          <a href="index.html" style="color: #1877f2; text-decoration: none; font-size: 0.9rem;">Already have an account?</a>
+        </p>
+        
       </form>
     </div>
   </div>

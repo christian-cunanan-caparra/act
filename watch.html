@@ -307,22 +307,27 @@
 <body>
   <header>
     <div class="header-left">
-      <img src="img/facebook-logo-0.png" alt="Facebook Logo">
-      <input id="searchBar" type="text" placeholder="Search Facebook" oninput="searchPosts()">
+        <a href="home.html">
+            <img src="img/facebook-logo-0.png" alt="Facebook Logo">
+        </a>
+        <input type="text" placeholder="Search Facebook">
     </div>
     <div class="header-right">
-      <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
-      <div class="profile-dropdown">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
-        <div class="dropdown-menu" id="dropdownMenu">
-          <a href="profile.html">Profile</a>
-          <a href="index.html">Logout</a>
+        <a href="home.html">
+            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
+        </a>
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
+        <div class="profile-dropdown">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="profile.html">Profile</a>
+   
+        <a href="index.html">Logout</a>
+            </div>
         </div>
-      </div>
     </div>
-  </header>
+</header>
 
   <div class="sidebar">
     <a href="home.html"><i class="fas fa-home"></i> Home</a>
@@ -374,4 +379,21 @@
     </div>
   </div>
 </body>
+<script>
+
+  function toggleDropdown() {
+          const dropdown = document.getElementById("dropdownMenu");
+          dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+  
+      // Close the dropdown if clicked outside
+      window.onclick = function(event) {
+          if (!event.target.matches('.profile-dropdown img')) {
+              const dropdown = document.getElementById("dropdownMenu");
+              if (dropdown && dropdown.style.display === "block") {
+                  dropdown.style.display = "none";
+              }
+          }
+      };
+  </script>
 </html>

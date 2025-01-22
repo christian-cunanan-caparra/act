@@ -56,10 +56,17 @@
             <div class="post-content">
                 Had a great day exploring the city and enjoying the weather! #blessed
             </div>
+            
             <div class="post-actions">
-                <button>Like</button>
-                <button>Comment</button>
+                <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
+                <button onclick="toggleCommentSection(this)">Comment</button>
+              
                 <button>Share</button>
+            </div>
+
+            <div class="comment-section">
+                <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
+                <div class="comments"></div>
             </div>
         </div>
         <div class="post">
@@ -74,9 +81,15 @@
                 New project coming soon. Stay tuned! #excited
             </div>
             <div class="post-actions">
-                <button>Like</button>
-                <button>Comment</button>
+                <button onclick="likePost(this)">Like (<span class="like-count">0</span>)</button>
+                <button onclick="toggleCommentSection(this)">Comment</button>
+              
                 <button>Share</button>
+            </div>
+
+            <div class="comment-section">
+                <input type="text" placeholder="Write a comment..." onkeypress="addComment(event, this)">
+                <div class="comments"></div>
             </div>
         </div>
     </div>
@@ -453,23 +466,161 @@ header {
 }
 
 
+ /* Newsfeed styles */
+ .newsfeed {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
 
+        .post {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .post-header img {
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-header .name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .post-header .time {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .post-content {
+            font-size: 15px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .post-actions button {
+            background-color: #e4e6eb;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .post-actions button:hover {
+            background-color: #d8dadf;
+        }
+        .comment-section {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .comment-section input {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .comment-section .comments div {
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
 </style>
 <script>
+    function likePost(button) {
+        const likeCountSpan = button.querySelector(".like-count");
+        let likeCount = parseInt(likeCountSpan.textContent);
+        likeCount++;
+        likeCountSpan.textContent = likeCount;
+    }
+
+    function toggleCommentSection(button) {
+        const commentSection = button.parentElement.nextElementSibling;
+        commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+    }
+
+    function addComment(event, input) {
+        if (event.key === "Enter" && input.value.trim() !== "") {
+            const commentText = input.value.trim();
+            const commentsDiv = input.nextElementSibling;
+            const newComment = document.createElement("div");
+            newComment.textContent = commentText;
+            commentsDiv.appendChild(newComment);
+            input.value = "";
+        }
+    }
+
+function likePost(button) {
+        const likeCountSpan = button.querySelector(".like-count");
+        let likeCount = parseInt(likeCountSpan.textContent);
+        likeCount++;
+        likeCountSpan.textContent = likeCount;
+    }
+
+    function toggleCommentSection(button) {
+        const commentSection = button.parentElement.nextElementSibling;
+        commentSection.style.display = commentSection.style.display === "none" ? "block" : "none";
+    }
+
+    function addComment(event, input) {
+        if (event.key === "Enter" && input.value.trim() !== "") {
+            const commentText = input.value.trim();
+            const commentsDiv = input.nextElementSibling;
+            const newComment = document.createElement("div");
+            newComment.textContent = commentText;
+            commentsDiv.appendChild(newComment);
+            input.value = "";
+        }
+    }
+
+    function searchPosts() {
+        const searchTerm = document.getElementById("searchBar").value.toLowerCase();
+        const posts = document.querySelectorAll(".post");
+
+        posts.forEach((post) => {
+            const name = post.querySelector(".post-header .name").textContent.toLowerCase();
+            if (name.includes(searchTerm)) {
+                post.style.display = "block"; // Show posts that match the search term
+            } else {
+                post.style.display = "none"; // Hide posts that don't match
+            }
+        });
+    }
+
+
 
     function toggleDropdown() {
+        const dropdown = document.getElementById("dropdownMenu");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+        if (!event.target.matches('.profile-dropdown img')) {
             const dropdown = document.getElementById("dropdownMenu");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-    
-        // Close the dropdown if clicked outside
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile-dropdown img')) {
-                const dropdown = document.getElementById("dropdownMenu");
-                if (dropdown && dropdown.style.display === "block") {
-                    dropdown.style.display = "none";
-                }
+            if (dropdown && dropdown.style.display === "block") {
+                dropdown.style.display = "none";
             }
-        };
-    </script>
+        }
+    };
+</script>
 </html>

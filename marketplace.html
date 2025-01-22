@@ -321,7 +321,7 @@ header {
     <main class="main-content">
      
       <div class="search-bar">
-        <input type="text" placeholder="Search Marketplace...">
+        <input type="text" placeholder="Search Product...">
         <button>Search</button>
       </div>
 
@@ -437,5 +437,25 @@ header {
               }
           }
       };
+
+
+      function filterProducts() {
+    const searchInput = document.querySelector('.search-bar input').value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
+
+    products.forEach(product => {
+        const productName = product.querySelector('h3').textContent.toLowerCase();
+        if (productName.includes(searchInput)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+// Attach the filter function to the search input event
+document.querySelector('.search-bar input').addEventListener('input', filterProducts);
+
+      
   </script>
 </html>

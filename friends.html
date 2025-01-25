@@ -268,6 +268,64 @@
     }
 
 
+   
+    .chat-modal {
+            display: none;
+            position: fixed;
+          bottom: -20%;
+            left: 85%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            z-index: 2000;
+        }
+
+        .chat-modal-header {
+            background: #1877f2;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .chat-modal-body {
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-modal-footer {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        .chat-modal-footer input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .chat-modal-footer button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .chat-modal-footer button:hover {
+            background-color: #155ab6;
+        }
+
     
 </style>
 
@@ -281,7 +339,7 @@
                 </div>
                 <div class="header-right">
                     <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Home">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828476.png" alt="Messages" onclick="toggleChatModal()">
                     <img src="https://cdn-icons-png.flaticon.com/512/2910/2910766.png" alt="Notifications">
                     <div class="profile-dropdown">
                         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile" onclick="toggleDropdown()">
@@ -295,6 +353,20 @@
             </header>
 
 
+            <div class="modal-overlay" id="modalOverlay" onclick="closeChatModal()"></div>
+            <div class="chat-modal" id="chatModal">
+                <div class="chat-modal-header">
+                    <span>Chat</span>
+                    <button onclick="closeChatModal()" style="background: none; border: none; color: white; cursor: pointer;">&times;</button>
+                </div>
+                <div class="chat-modal-body" id="chatBody">
+                    <!-- Chat messages will appear here -->
+                </div>
+                <div class="chat-modal-footer">
+                    <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="sendMessage(event)">
+                    <button onclick="sendMessageClick()">Send</button>
+                </div>
+            </div>
         <div class="container">
             <!-- Sidebar -->
             <div class="sidebar">
@@ -359,14 +431,14 @@
                         <li>
                             <div class="details">
                                 <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
-                                <span>PEOPLE 1</span>
+                                <span> Juan</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
                                 <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
-                                <span>PEOPLE 2</span>
+                                <span>Jose</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
@@ -380,21 +452,21 @@
                         <li>
                             <div class="details">
                                 <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
-                                <span>PEOPLE 3</span>
+                                <span>Pedro</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
                                 <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
-                                <span>PEOPLE 4</span>
+                                <span>Topeng</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
                         <li>
                             <div class="details">
                                 <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Suggested Friend">
-                                <span>PEOPLE 5</span>
+                                <span>John</span>
                             </div>
                             <button class="add-friend">Add Friend</button>
                         </li>
@@ -406,26 +478,26 @@
                     <li>
                         <div class="details">
                         <img src="img/468287479_575638201716744_3622098773697684960_n.jpg" alt="Friend">
-                        <span>PEOPLE 6</span>
+                        <span>Christian</span>
                     </div>
                     </li>
                     <li>
                         <div class="details">
                             <img src="img/473582253_1325067522250323_2018626089318684702_n.jpg" alt="Friend">
-                            <span>PEOPLE 7</span>
+                            <span>John Lloyd</span>
                         </div>
                     </li>
                     <li>
                         <div class="details">
                             <img src="img/454650902_3720406161550262_7354730865339454570_n.jpg" alt="Friend">
-                            <span>PEOPLE 8</span>
+                            <span>Jhuniel</span>
                         </div>
                     </li>
 
                     <li>
                         <div class="details">
                             <img src="img/422886398_8143352062343752_1286942911298102858_n.jpg" alt="Friend">
-                            <span>PEOPLE 9</span>
+                            <span>Michael</span>
                         </div>
                     </li>
                 </ul>
@@ -509,5 +581,64 @@
                 }
             }
         };
+
+
+        const predefinedMessages = [
+            "Good Afternoon",
+            "How are you?",
+            "Welcome to the chat!",
+            "Let me know if you need help.",
+            "Have a great day!"
+        ];
+
+        function toggleChatModal() {
+            const modalOverlay = document.getElementById("modalOverlay");
+            const chatModal = document.getElementById("chatModal");
+            const chatBody = document.getElementById("chatBody");
+
+            modalOverlay.style.display = "block";
+            chatModal.style.display = "block";
+
+            // Clear chat body and add predefined messages
+            chatBody.innerHTML = ""; // Clear existing messages
+            predefinedMessages.forEach((message) => {
+                const messageDiv = document.createElement("div");
+                messageDiv.textContent = message;
+                messageDiv.style.margin = "5px 0";
+                messageDiv.style.padding = "8px";
+                messageDiv.style.background = "#f0f2f5";
+                messageDiv.style.borderRadius = "5px";
+                chatBody.appendChild(messageDiv);
+            });
+        }
+
+        function closeChatModal() {
+            document.getElementById("modalOverlay").style.display = "none";
+            document.getElementById("chatModal").style.display = "none";
+        }
+
+        function sendMessage(event) {
+            if (event.key === "Enter") {
+                sendMessageClick();
+            }
+        }
+
+        function sendMessageClick() {
+            const chatInput = document.getElementById("chatInput");
+            const chatBody = document.getElementById("chatBody");
+            const message = chatInput.value.trim();
+
+            if (message !== "") {
+                const messageDiv = document.createElement("div");
+                messageDiv.textContent = message;
+                messageDiv.style.margin = "5px 0";
+                messageDiv.style.padding = "8px";
+                messageDiv.style.background = "#f0f2f5";
+                messageDiv.style.borderRadius = "5px";
+                chatBody.appendChild(messageDiv);
+                chatInput.value = "";
+                chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll to the bottom
+            }
+        }
     </script>
     </html>
